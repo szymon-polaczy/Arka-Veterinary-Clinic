@@ -1,14 +1,15 @@
 const express = require('express');
-const { response } = require('express');
+const helmet = require('helmet');
 const cors = require('cors');
 
 const app = express();
 
 app.use(cors());
+app.use(helmet());
 app.use(express.json());
 
-app.get('/', (request, respond) => {
-    respond.json({
+app.get('/', (req, res) => {
+    res.json({
         message: 'Meower! ^^'
     })
 });
