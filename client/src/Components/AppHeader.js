@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Styled from 'styled-components'
 import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
 
+import HomePage from '../Pages/HomePage'
+
 const Header = Styled.header`
-	box-shadow: 0 0 .65rem #999;
+	box-shadow: 0 .5rem .5rem #d0d0d0;
+	position: sticky;
+	top: 0;
+	z-index: 100;
 
 	.wrapper {
 		height: 5rem;
@@ -13,6 +18,39 @@ const Header = Styled.header`
 		flex-flow: row;
 		max-width: 1200px;
 		margin: 0 auto;
+	}
+
+	button {
+		width: 3rem;
+		padding: 0;
+		background: transparent;
+		border: none;
+		outline: none;
+		margin-right: 1rem;
+		transition: .1s all ease-out;
+		display: none;
+
+		&:hover {
+			transform: scale(1.05) rotate(5deg);
+			transition: .2s all ease-out;
+		}
+
+		&:active {
+			transform: scale(0.95) rotate(-5deg);
+			transition: .2s all ease-out;
+		}
+	}
+
+	@media (max-width: 800px) {
+		button {
+			display: block;
+		}
+	}
+
+	@media (max-width: 400px) {
+		button {
+			width: 4rem;
+		}
 	}
 `
 
@@ -29,6 +67,19 @@ const LogoSection = Styled.section`
 
 	h1 {
 		font-size: 1.5rem;
+		font-weight: 600;
+		margin-right: 1rem;
+	}
+
+	@media (max-width: 500px) {
+		h1 {
+			font-size: 1.3rem;
+		}
+		
+		img {
+			max-height: 80%;
+			padding: .65rem;
+		}
 	}
 `
 
@@ -40,8 +91,11 @@ const Navigation = Styled.nav`
 		padding: 0;
 		
 		li {
+			font-weight: 600;
 			padding: .65rem;
 			list-style-type: none;
+			display: flex;
+			align-items: center;
 
 			a {
 				color: inherit;
@@ -53,9 +107,29 @@ const Navigation = Styled.nav`
 			}
 		}
 	}
+
+	@media (max-width: 800px) {
+		transform: ${({ open }) => open ? 'translateY(0%)' : 'translateY(-100%)'};
+		opacity: ${({ open }) => open ? '1' : '0'};
+		position: fixed;
+		left: 0;
+		top: 5rem;
+		width: 100vw;
+		z-index: -1;
+		background: #fff;
+		transition: .3s all ease-in-out;
+		box-shadow: 0 .5rem .5rem #d0d0d0;
+		padding: 1rem;
+
+		ul {
+			flex-flow: column;
+		}
+	}
 `
 
 const AppHeader = () => {
+	const [open, setOpen] = useState(false);
+
 	return (
 		<Router>
 			<Header>
@@ -64,16 +138,19 @@ const AppHeader = () => {
 						<img src="Images/logo.png" alt="Arka"/>
 						<h1>Przychodnia Weterynaryjna Arka</h1>
 					</LogoSection>
-						<Navigation>
-							<ul>
-								<li><Link to="/">Strona Główna</Link></li>
-								<li><Link to="/oferta">Oferta</Link></li>
-								<li><Link to="/kontakt">Kontakt</Link></li>
-								<li><Link to="/galeria">Galeria</Link></li>
-								<li><Link to="/blog">Blog</Link></li>
-								<li><Link to="/łapa"><i>Łapa</i></Link></li>
-							</ul>
-						</Navigation>
+					<button aria-label="Menu Btn" onClick={() => setOpen(!open)}>
+						<img src="Images/svg/menu-icon.svg" alt="Menu"/>
+					</button>
+					<Navigation open={open}>
+						<ul>
+							<li><Link to="/">Strona Główna</Link></li>
+							<li><Link to="/oferta">Oferta</Link></li>
+							<li><Link to="/kontakt">Kontakt</Link></li>
+							<li><Link to="/galeria">Galeria</Link></li>
+							<li><Link to="/blog">Blog</Link></li>
+							<li><Link to="/łapa"><i>Łapa</i></Link></li>
+						</ul>
+					</Navigation>
 				</div>
 			</Header>
 
@@ -83,7 +160,7 @@ const AppHeader = () => {
 				<Route path="/galeria">{/* <Galeria/> */}</Route>
 				<Route path="/kontakt">{/* <Kontakt/> */}</Route>
 				<Route path="/oferta">{/* <Oferta/> */}</Route>
-				<Route path="/">{/* <Strona Główna/> */}</Route>
+				<Route path="/"><HomePage/></Route>
 			</Switch>
 		</Router>
 	)
