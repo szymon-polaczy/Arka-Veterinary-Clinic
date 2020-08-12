@@ -33,7 +33,7 @@ const AppFooter = () => {
     <Footer>
       <div className="wrapper">
         <p>Copyright &copy; Przychodnia Weterynaryjna Arka</p>
-        <a href="https://github.com/szymon-polaczy" target="_blank" title="Skontaktuj się ze mną">Made by Szymon Polaczy</a>
+        <a href="https://github.com/szymon-polaczy" target="_blank" title="Skontaktuj się ze mną" rel="noopener noreferrer">Made by Szymon Polaczy</a>
       </div>
     </Footer>
   )
