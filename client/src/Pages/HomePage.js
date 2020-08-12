@@ -36,8 +36,6 @@ const HomePage = () => {
 
 			<br/><br/>
 
-			<b><i>Stopka z copyright i linkiem do mnie</i></b>
-
 			{/*<div>
 					Icons made by 
 					<a href="https://www.flaticon.com/authors/smashicons" 

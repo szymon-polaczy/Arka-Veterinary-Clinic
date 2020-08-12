@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
 import Styled from 'styled-components'
-import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
-
-import HomePage from '../Pages/HomePage'
-import OfferPage from '../Pages/OfferPage'
+import { Link } from 'react-router-dom'
 
 const Header = Styled.header`
 	box-shadow: 0 .5rem .5rem #d0d0d0;
@@ -98,15 +95,6 @@ const Navigation = Styled.nav`
 			list-style-type: none;
 			display: flex;
 			align-items: center;
-
-			a {
-				color: inherit;
-				text-decoration: none;
-
-				&:hover {
-					text-decoration: underline;
-				}
-			}
 		}
 	}
 
@@ -133,7 +121,6 @@ const AppHeader = () => {
 	const [open, setOpen] = useState(false);
 
 	return (
-		<Router>
 			<Header>
 				<div className="wrapper">
 					<LogoSection>
@@ -155,16 +142,6 @@ const AppHeader = () => {
 					</Navigation>
 				</div>
 			</Header>
-
-			<Switch>
-				<Route path="/łapa">{/* <Łapa/> */}</Route>
-				<Route path="/blog">{/* <Blog/> */}</Route>
-				<Route path="/galeria">{/* <Galeria/> */}</Route>
-				<Route path="/kontakt">{/* <Kontakt/> */}</Route>
-				<Route path="/oferta"><OfferPage/></Route>
-				<Route path="/"><HomePage/></Route>
-			</Switch>
-		</Router>
 	)
 }
 
