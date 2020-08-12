@@ -1,11 +1,18 @@
-import React from 'react';
+import React from 'react'
+import Styled from 'styled-components'
+import AppHeader from './Components/AppHeader'
+import 'normalize.css';
+
+const ApplicationWrapper = Styled.div`
+  	font-family: 'Montserrat', sans-serif;
+`
 
 function App() {
-  return (
-    <div className="App">
-      <h1>Przychodnia Weterynaryjna Arka</h1>
-    </div>
-  );
+	return (
+		<ApplicationWrapper>
+			<AppHeader/>
+		</ApplicationWrapper>
+	)
 }
 
-export default App;
+export default App
