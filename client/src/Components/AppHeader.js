@@ -3,12 +3,14 @@ import Styled from 'styled-components'
 import { BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
 
 import HomePage from '../Pages/HomePage'
+import OfferPage from '../Pages/OfferPage'
 
 const Header = Styled.header`
 	box-shadow: 0 .5rem .5rem #d0d0d0;
 	position: sticky;
 	top: 0;
 	z-index: 100;
+	background: #fff;
 
 	.wrapper {
 		height: 5rem;
@@ -159,7 +161,7 @@ const AppHeader = () => {
 				<Route path="/blog">{/* <Blog/> */}</Route>
 				<Route path="/galeria">{/* <Galeria/> */}</Route>
 				<Route path="/kontakt">{/* <Kontakt/> */}</Route>
-				<Route path="/oferta">{/* <Oferta/> */}</Route>
+				<Route path="/oferta"><OfferPage/></Route>
 				<Route path="/"><HomePage/></Route>
 			</Switch>
 		</Router>
