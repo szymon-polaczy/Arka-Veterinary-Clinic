@@ -3,11 +3,11 @@ import Styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 const Header = Styled.header`
-	box-shadow: 0 .5rem .5rem #d0d0d0;
 	position: sticky;
 	top: 0;
 	z-index: 100;
-	background: #fff;
+	background: #1b1b1b;
+	color: #efefef;
 
 	.wrapper {
 		height: 5rem;
@@ -106,7 +106,7 @@ const Navigation = Styled.nav`
 		top: 5rem;
 		width: 100vw;
 		z-index: -1;
-		background: #fff;
+		background: #1b1b1b;
 		transition: .3s all ease-in-out;
 		box-shadow: 0 .5rem .5rem #d0d0d0;
 		padding: 1rem;
@@ -125,7 +125,7 @@ const AppHeader = () => {
 				<div className="wrapper">
 					<LogoSection>
 						<img src="Images/logo.png" alt="Arka"/>
-						<h1>Przychodnia Weterynaryjna Arka</h1>
+						<h1><Link to="/">Przychodnia Weterynaryjna Arka</Link></h1>
 					</LogoSection>
 					<button aria-label="Menu Btn" onClick={() => setOpen(!open)}>
 						<img src="Images/svg/menu-icon.svg" alt="Menu"/>
@@ -137,7 +137,6 @@ const AppHeader = () => {
 							<li><Link to="/kontakt">Kontakt</Link></li>
 							<li><Link to="/galeria">Galeria</Link></li>
 							<li><Link to="/blog">Blog</Link></li>
-							<li><Link to="/łapa"><i>Łapa</i></Link></li>
 						</ul>
 					</Navigation>
 				</div>

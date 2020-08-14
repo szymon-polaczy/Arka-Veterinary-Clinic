@@ -1,71 +1,14 @@
 import React from 'react'
 import Styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const HomePageContainer = Styled.main`
-	padding: 2rem 0;
+	padding: 0;
+	position: relative;
+	z-index: 80;
+	background: #1b1b1b;
+	color: #fff;
 `;
-
-const WelcomeInfoSection = Styled.section`
-	display: flex;
-	min-height: 50vh;
-
-	section {
-		width: 50%;
-	}
-
-	.img-section {
-		position: relative;
-
-		img {
-			height: 100%;
-			width: 100%;
-			object-fit: cover;
-			display: block;
-		}
-
-		h2 {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translateX(-50%) translateY(-50%);
-			font-size: 3rem;
-			color: #fff;
-			margin: 0; 
-			padding: 0;
-			line-height: 120%;
-			text-shadow: 0 0 .5rem #000;
-			text-align: center;
-		}
-	}
-
-	.info-section {
-		display: flex;
-		align-items: flex-start;
-		justify-content: center;
-		flex-flow: column;
-		background: #202126;
-		color: #999;
-		padding: 5rem 2rem;
-
-		p {
-			line-height: 140%;
-			letter-spacing: .02rem;
-			font-size: 1.1rem;
-			padding: 0;
-			margin: 0;
-		}
-
-		h3 {
-			margin: 0;
-			padding: 2rem 0 1rem 0;
-		}
-
-		ul {
-			margin: 0;
-			line-height: 125%;
-		}
-	}
-`
 
 const PartnersSection = Styled.section`
 	h2 {
@@ -86,6 +29,8 @@ const PartnersSection = Styled.section`
 `
 
 const PeopleSection = Styled.section`
+	padding-bottom: 5rem;
+
 	.wrapper {
 		max-width: 1200px;
 		margin: 0 auto;
@@ -93,15 +38,69 @@ const PeopleSection = Styled.section`
 		h2 {
 			text-align: center;
 			margin-bottom: .35rem;
-		}
+			font-size: 2rem;
+			letter-spacing: 0.05rem;
+			margin-top: 4rem;
 
-		small {
-			text-align: center;
-			display: block;
+			&::after {
+				display: block;
+				content: '';
+				width: 16rem;
+				height: 2px;
+				background: #548493;
+				margin: .65rem auto;
+			}
 		}
 
 		section {
-			display: flex;
+			article {
+				width: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-flow: row;
+
+				img {
+					width: 400px;
+					height: 400px;
+					border-radius: 50%;
+					object-fit: cover;
+					object-position: center;
+					margin: 1.5rem;
+				}
+
+				h3 {
+					margin: 0;
+					padding: 0;
+				}
+
+				h3, p {
+					padding: 0 1rem;	
+				}
+
+				p {
+					line-height: 160%;
+				}
+
+				.job-title {
+					font-weight: 600;
+					margin-top: .25rem;
+				}
+
+				.specjalnie-dla-doktorka-na-chwile {
+					object-position: top;
+				}
+			}
+
+			article:nth-child(even) {
+				flex-flow: row-reverse;
+				text-align: right;
+			}
+
+
+
+
+			/*display: flex;
 			flex-flow: wrap;
 			align-items: center;
 			justify-content: center;
@@ -112,6 +111,18 @@ const PeopleSection = Styled.section`
 				margin: 1rem;
 				text-align: center;
 				line-height: 135%;
+
+				h3 {
+					padding: 0;
+					margin: 0;
+					margin-top: 1rem;
+				}
+
+				.job-title {
+					margin-top .5rem;
+					line-height: 100%;
+					font-weight: 600;
+				}
 
 				img {
 					width: 350px;
@@ -125,8 +136,149 @@ const PeopleSection = Styled.section`
 				.specjalnie-dla-doktorka-na-chwile {
 					object-position: top;
 				}
+			}*/
+
+
+
+		}
+	}
+`
+
+
+const VeryExplicitWelcome = Styled.header`
+	position: relative;
+	height: calc(100vh - 5rem);
+	background: #1b1b1b;
+
+	h2 {
+		paddding: 0;
+		margin: 0;
+		text-align: center;
+		color: #fff;
+		letter-spacing: 1rem;
+		font-family: 'Barrio', cursive;
+		text-transform: uppercase;
+		font-size: 12rem;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+	}
+
+	.top-heading {
+		z-index: 5;
+		transform: translateX(-50%) translateY(-2em);
+	}
+
+	.bottom-heading {
+		z-index: 15;
+		transform: translateX(-50%) translateY(3rem);
+	}
+
+	img {
+		position: absolute;
+		z-index: 10;
+		max-height: 100%;
+		left: 50%;
+		top: 12%;
+		transform: translateX(-50%);
+	}
+`
+
+const VerySimpleGetToKnowUsSection = Styled.section`
+	padding: 3.5rem 5rem;
+	font-size: 1.1rem;
+	letter-spacing: 0.05rem;
+	line-height: 130%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background: #548493;
+
+	p {
+		max-width: 40ch;
+	}
+
+	article {
+		display: flex;
+		align-items: center;
+
+		a {
+			width: 15rem;
+		}
+
+		img {
+			max-height: 3rem;
+		}
+	}
+`
+
+const ThreeStageIntro = Styled.section`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	a {
+		flex: 1;
+		text-align: center;
+		padding: 10rem 2rem;
+
+		article {
+			transition: transform .2s ease-out;
+		}
+
+		&:hover {
+			text-decoration: none !IMPORTANT; /*I don't understand why this important need to be here because it should work just fine without it - try to fix this*/
+
+			article {
+				transform: scale(1.15);
+				transition: transform .25s ease-in-out;
+			}
+
+			p::after {
+				transform: scaleX(1);
+				transition: .25s transform ease-out;
 			}
 		}
+
+		h2 {
+			margin: .65rem 0;
+		}
+
+		p {
+			font-weight: 600;
+
+			&::after {
+				display: block;
+				content: '';
+				width: 10rem;
+				height: 2px;
+				background: #548493;
+				transform: scaleX(0);
+				transition: .15s transform ease-out;
+				margin: 0 auto;
+				margin-top: .35rem;
+			}
+		}
+
+		img {
+			max-height: 5rem;
+		}
+	}
+
+	a:nth-child(2) {
+		flex: 2;
+		background: #fff;
+		color: #1b1b1b;
+	}
+`
+
+const SectionBrakerImage = Styled.section`
+	img {
+		/*max-height: 400px;*/
+		max-height: 500px;
+		width: 100%;
+		object-fit: cover;
+		object-position: 50% 64%;
 	}
 `
 
@@ -134,102 +286,136 @@ const HomePage = () => {
 	return (
 		<HomePageContainer>
 
-			{/*<b>Po krótku nasza oferta | Opis firmy [<a href="http://www.fizjowet.pl/">Tak jak tutaj</a>]</b><br/> TO JEST TO WYŻEJ <br/>
-			Jakiś krótki opis veta / ludzi tam pracujących a poniżej króciutki opis naszej oferty  (Podoba mi się ten paralax effect)*/}
-			<WelcomeInfoSection>
-				<section className="img-section">
-					<h2>Arka <br/> Poznajmy się</h2>
-					<img src="Images/cat-welcomeinfo.jpg" alt="Kot"/>
-				</section>
-				<section className="info-section">
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-						Suspendisse luctus ipsum ut interdum malesuada. Donec tellus nibh,
-						efficitur nec laoreet vel, tempor at libero. Maecenas congue nulla
-						ec quam lacinia accumsan. Etiam interdum varius venenatis. Quisque 
-						nec congue ipsum, et tempus risus. Vestibulum lacinia sed magna non 
-						euismod. Orci varius natoque penatibus et magnis dis parturient 
-						montes, nascetur ridiculus mus. Sed sollicitudin lectus 
-						vel nunc pretium iaculis</p>
+			<VeryExplicitWelcome>
+				<h2 className="top-heading">Daj głos swojemu</h2>
+				<img src="Images/cat-welcomeinfo.png" alt="Kot" />
+				<h2 className="bottom-heading">kompanowi</h2>
+			</VeryExplicitWelcome>
 
-					<h3>Najważniejsze elementy naszej oferty</h3>
+			<VerySimpleGetToKnowUsSection>
+				<article>
+					<Link to="/kontakt">Poznaj nas bliżej</Link>
+					<img src="Images/svg/crow-solid.svg" alt="Ptaszek"/>
+				</article>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+				Suspendisse luctus ipsum ut interdum malesuada. Donec tellus nibh,
+				efficitur nec laoreet vel, tempor at libero. Maecenas congue nulla
+				ec quam lacinia accumsan. Etiam interdum varius venenatis. Quisque 
+				nec congue ipsum, et tempus risus. Vestibulum lacinia sed magna non 
+				euismod. Orci varius natoque penatibus et magnis dis parturient 
+				montes, nascetur ridiculus mus. Sed sollicitudin lectus 
+				vel nunc pretium iaculis</p>
+			</VerySimpleGetToKnowUsSection>
 
-					<ul>
-						<li>badamy krew na miejscu w ciągu 15 minut, zarówno biochemię jak i morfologię</li>
-						<li>wykonujemy USG</li>
-						<li>wykonujemy zdjęcia RTG, na wysokiej jakości aparacie</li>
-						<li>wykonujemy EKG</li>
-						<li>wykonujemy sanację jamy ustnej czyli ultradźwiękowe czysczenie zębów wraz z polerowaniem</li>
-						<li>badamy kał i mocz</li>
-						<li>badamy zeskrobiny i wymazy pod mikroskopem</li>
-						<li>z pobranego materiału pobieramy wymazy,zeskrobiny aby hodować bakterie potrzebne do wykonania antybiogramu</li>
-						<li>operacje wykonujemy pod stałym monitoringiem akcji serca i wysycenia tkanek tlenem</li>
-						<li>zakładamy znieczulenie nadoponowe</li>
-						<li>posiadamy aparat do znieczulenia wziewnego, czyli najbezpieczniejszej metody sedacji</li>
-					</ul>
-				</section>
-			</WelcomeInfoSection>
+			<ThreeStageIntro>
+				<Link to="/blog">
+					<article>
+						<img src="Images/svg/comment-medical-solid.svg" alt="Rozmowa	"/>
+						<h2>Blog</h2>
+						<p>Zrozum lepiej swoją rodzinę</p>
+					</article>
+				</Link>
+				<Link to="/oferta">
+					<article>
+						<img src="Images/svg/child-solid.svg" alt="Człowiek"/>
+						<h2>Nasza Oferta</h2>
+						<p>Co możesz dla niego zrobić?</p>
+					</article>
+				</Link>
+				<Link to="/galeria">
+					<article>
+						<img src="Images/svg/cat-solid.svg" alt="Kotek"/>
+						<h2>Galeria</h2>
+						<p>Poznaj naszych przyjaciół</p>
+					</article>
+				</Link>
+			</ThreeStageIntro>
 
-			<b>Co o nas mówią? [<a href="https://www.skvet.pl/">Tak jak tutaj</a>]</b> <br/>
-			Tutaj żeby wyświetlały się opinie osób które miał u nas zwierzaka - zdjęcie zwierzaka (opcjonalne) | opinia | podpis
+			<SectionBrakerImage>
+				{/*
+				<img src="Images/2.jpg" alt="Kobieta z psem"/>
+				<img src="Images/woman-with-a-dog.jpg" alt="Kobieta z psem"/>
+				<img src="Images/4.jpg"/>
+				*/}
+				<img src="Images/3.jpg"/>
+			</SectionBrakerImage>
 
 			{/*<b>Nasi specjaliście | Nasza załoga [Tak jak <a href="https://www.skvet.pl/">tutaj</a> i <a href="http://pulsvet.com.pl/">tutaj</a>]</b><br/>
 			Chcę żeby to było schludnie jak w skvet-cie ale żeby to bardziej u nas była karuzela z pracującymi osobami / po prostu ich 
 			wszystkich wyświetlić na raz (Potem fajnie by też było dodać osoby które są ochotnikami w Łapie - tam też je dodać)*/}
 			<PeopleSection>
 				<div className="wrapper">
-					<h2>Oto nasza załoga</h2>
-					<small>, która zawsze dba aby twój miłośnik dostał to co dla niego najlepsze</small>
+					<h2>Oto ludzie dbający o to co dla Ciebie najważniejsze</h2>
 					<section>
 						<article>
 							<img src="Images/people/doktorek.jpg" alt="Doktor"  className="specjalnie-dla-doktorka-na-chwile"/>
-							<h3>Technik Weterynari</h3>
-							<p>Tutaj jakiś króciótki opis czy coś, no nie wiem coś by chyba się przydało</p>
+							<section>
+								<h3>Doktorek</h3>
+								<h3 className="job-title">Technik Weterynari</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+								Suspendisse luctus ipsum ut interdum malesuada. Donec tellus nibh,
+								efficitur nec laoreet vel, tempor at libero. Maecenas congue nulla
+								ec quam lacinia accumsan. Etiam interdum varius venenatis.</p>
+							</section>
 						</article>
 						<article>
 							<img src="Images/people/iza.jpg" alt="Iza"/>
-							<h3>Technik Weterynari</h3>
-							<p>Tutaj jakiś króciótki opis czy coś, no nie wiem coś by chyba się przydało</p>
+							<section>
+								<h3>Iza</h3>
+								<h3 className="job-title">Technik Weterynari</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+								Suspendisse luctus ipsum ut interdum malesuada. Donec tellus nibh,
+								efficitur nec laoreet vel, tempor at libero. Maecenas congue nulla
+								ec quam lacinia accumsan. Etiam interdum varius venenatis.</p>
+							</section>
 						</article>
 						<article>
 							<img src="Images/people/michalina.jpg" alt="Michalina"/>
-							<h3>Technik Weterynari</h3>
-							<p>Tutaj jakiś króciótki opis czy coś, no nie wiem coś by chyba się przydało</p>
+							<section>
+								<h3>Michalina</h3>
+								<h3 className="job-title">Technik Weterynari</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+								Suspendisse luctus ipsum ut interdum malesuada. Donec tellus nibh,
+								efficitur nec laoreet vel, tempor at libero. Maecenas congue nulla
+								ec quam lacinia accumsan. Etiam interdum varius venenatis.</p>
+							</section>
 						</article>
 						<article>
 							<img src="Images/people/julia.jpg" alt="Żaneta"/>
-							<h3>Technik Weterynari</h3>
-							<p>Tutaj jakiś króciótki opis czy coś, no nie wiem coś by chyba się przydało</p>
+							<section>
+								<h3>Julia</h3>
+								<h3 className="job-title">Technik Weterynari</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+								Suspendisse luctus ipsum ut interdum malesuada. Donec tellus nibh,
+								efficitur nec laoreet vel, tempor at libero. Maecenas congue nulla
+								ec quam lacinia accumsan. Etiam interdum varius venenatis.</p>
+							</section>
 						</article>
 						<article>
 							<img src="Images/people/krzysiu.jpg" alt="Krzysiek"/>
-							<h3>Technik Weterynari</h3>
-							<p>Tutaj jakiś króciótki opis czy coś, no nie wiem coś by chyba się przydało</p>
+							<section>
+								<h3>Krzysiek</h3>
+								<h3 className="job-title">Technik Weterynari</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+								Suspendisse luctus ipsum ut interdum malesuada. Donec tellus nibh,
+								efficitur nec laoreet vel, tempor at libero. Maecenas congue nulla
+								ec quam lacinia accumsan. Etiam interdum varius venenatis.</p>
+							</section>
 						</article>
 						<article>
 							<img src="Images/people/maria.jpg" alt="Maria"/>
-							<h3>Technik Weterynari</h3>
-							<p>Tutaj jakiś króciótki opis czy coś, no nie wiem coś by chyba się przydało</p>
+							<section>
+								<h3>Maria</h3>
+								<h3 className="job-title">Technik Weterynari</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+								Suspendisse luctus ipsum ut interdum malesuada. Donec tellus nibh,
+								efficitur nec laoreet vel, tempor at libero. Maecenas congue nulla
+								ec quam lacinia accumsan. Etiam interdum varius venenatis.</p>
+							</section>
 						</article>
 					</section>
 				</div>
 			</PeopleSection>
-
-			<b>Mały kontakt + Mapka + Link do rezerwacji [<a href="https://www.skvet.pl/">Tak jak tutaj</a>]</b><br/>
-			Krótki kontakt z tylko najważniejszymi informacjami + zachęta do rezerwacji (strona kontakt) + mapka schludnie wyglądająca
-
-
-			{/*<b>Nasi partnerzy [<a href="http://www1.up.poznan.pl/ucmw/">Tak jak tutaj</a>]</b><br/>
-			Żeby się tutaj na dole prezentowały ikony naszych partnerów | Schludnie i przejrzyście*/}
-			<PartnersSection>
-				<h2>Nasi Partnerzy</h2>
-				<article>
-					<img src="Images/partners/hipra.png" alt="hipra"/>
-					<img src="Images/partners/hipromine.png" alt="hipromine"/>
-					<img src="Images/partners/kruuse.png" alt="kruuse"/>
-					<img src="Images/partners/merial.png" alt="merial"/>
-					<img src="Images/partners/royal-canin.png" alt="royal-canin"/>
-				</article>
-			</PartnersSection>
 
 			{/*<div>
 					Icons made by 

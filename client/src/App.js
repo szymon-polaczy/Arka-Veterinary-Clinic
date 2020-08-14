@@ -10,16 +10,16 @@ import OfferPage from './Pages/OfferPage'
 import 'normalize.css';
 
 const ApplicationWrapper = Styled.div`
-		font-family: 'Montserrat', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 		
-		a {
-			color: inherit;
-			text-decoration: none;
+	a {
+		color: inherit;
+		text-decoration: none;
 
-			&:hover {
-				text-decoration: underline;
-			}
+		&:hover {
+			text-decoration: underline;
 		}
+	}
 `
 
 function App() {
@@ -29,16 +29,15 @@ function App() {
 				<AppHeader/>
 
 				<Switch>
-					<Route path="/łapa">{/* <Łapa/> */}</Route>
 					<Route path="/blog">{/* <Blog/> */}</Route>
 					<Route path="/galeria">{/* <Galeria/> */}</Route>
 					<Route path="/kontakt">{/* <Kontakt/> */}</Route>
 					<Route path="/oferta"><OfferPage/></Route>
 					<Route path="/"><HomePage/></Route>
 				</Switch>
+				
+				<AppFooter/>
 			</Router>
-
-			<AppFooter/>
 		</ApplicationWrapper>
 	)
 }
