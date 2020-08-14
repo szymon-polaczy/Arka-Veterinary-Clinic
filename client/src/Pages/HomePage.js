@@ -10,26 +10,9 @@ const HomePageContainer = Styled.main`
 	color: #fff;
 `;
 
-const PartnersSection = Styled.section`
-	h2 {
-		text-align: center;
-	}
-
-	article {
-		display: flex;
-		align-items: center;
-		flex-flow: wrap;
-		justify-content: center;
-
-		img {
-			max-height: 5rem;
-			margin: .65rem;
-		}
-	}
-`
-
 const PeopleSection = Styled.section`
 	padding-bottom: 5rem;
+	border-bottom: .65rem solid #548493;
 
 	.wrapper {
 		max-width: 1200px;
@@ -72,6 +55,8 @@ const PeopleSection = Styled.section`
 				h3 {
 					margin: 0;
 					padding: 0;
+					letter-spacing: 0.1rem;
+					font-family: 'Barrio', cursive;
 				}
 
 				h3, p {
@@ -96,54 +81,9 @@ const PeopleSection = Styled.section`
 				flex-flow: row-reverse;
 				text-align: right;
 			}
-
-
-
-
-			/*display: flex;
-			flex-flow: wrap;
-			align-items: center;
-			justify-content: center;
-			margin-top: 1rem;
-
-			article {
-				width: 350px;
-				margin: 1rem;
-				text-align: center;
-				line-height: 135%;
-
-				h3 {
-					padding: 0;
-					margin: 0;
-					margin-top: 1rem;
-				}
-
-				.job-title {
-					margin-top .5rem;
-					line-height: 100%;
-					font-weight: 600;
-				}
-
-				img {
-					width: 350px;
-					height: 350px;
-					border-radius: 50%;
-					overflow: hidden;
-					object-fit: cover;
-					object-position: center;
-				}
-
-				.specjalnie-dla-doktorka-na-chwile {
-					object-position: top;
-				}
-			}*/
-
-
-
 		}
 	}
 `
-
 
 const VeryExplicitWelcome = Styled.header`
 	position: relative;
@@ -186,11 +126,9 @@ const VeryExplicitWelcome = Styled.header`
 
 const VerySimpleGetToKnowUsSection = Styled.section`
 	padding: 3.5rem 5rem;
-	font-size: 1.1rem;
-	letter-spacing: 0.05rem;
-	line-height: 130%;
+	letter-spacing: 0.1rem;
+	line-height: 145%;
 	display: flex;
-	align-items: center;
 	justify-content: space-between;
 	background: #548493;
 
@@ -203,18 +141,20 @@ const VerySimpleGetToKnowUsSection = Styled.section`
 		align-items: center;
 
 		a {
-			width: 15rem;
+			width: 17rem;
+			font-family: 'Barrio', cursive;
+			letter-spacing: 0.1rem;
+			font-size: 1.2rem;
 		}
 
 		img {
-			max-height: 3rem;
+			max-height: 3.5rem;
 		}
 	}
 `
 
 const ThreeStageIntro = Styled.section`
 	display: flex;
-	justify-content: center;
 	align-items: center;
 
 	a {
@@ -223,7 +163,7 @@ const ThreeStageIntro = Styled.section`
 		padding: 10rem 2rem;
 
 		article {
-			transition: transform .2s ease-out;
+			transition: all .2s ease-out;
 		}
 
 		&:hover {
@@ -231,17 +171,17 @@ const ThreeStageIntro = Styled.section`
 
 			article {
 				transform: scale(1.15);
-				transition: transform .25s ease-in-out;
 			}
 
 			p::after {
 				transform: scaleX(1);
-				transition: .25s transform ease-out;
 			}
 		}
 
 		h2 {
 			margin: .65rem 0;
+			font-family: 'Barrio', cursive;
+			letter-spacing: 0.1rem;
 		}
 
 		p {
@@ -255,8 +195,7 @@ const ThreeStageIntro = Styled.section`
 				background: #548493;
 				transform: scaleX(0);
 				transition: .15s transform ease-out;
-				margin: 0 auto;
-				margin-top: .35rem;
+				margin: .35rem auto 0 auto;
 			}
 		}
 
@@ -274,7 +213,6 @@ const ThreeStageIntro = Styled.section`
 
 const SectionBrakerImage = Styled.section`
 	img {
-		/*max-height: 400px;*/
 		max-height: 500px;
 		width: 100%;
 		object-fit: cover;
@@ -339,10 +277,7 @@ const HomePage = () => {
 				*/}
 				<img src="Images/3.jpg"/>
 			</SectionBrakerImage>
-
-			{/*<b>Nasi specjaliście | Nasza załoga [Tak jak <a href="https://www.skvet.pl/">tutaj</a> i <a href="http://pulsvet.com.pl/">tutaj</a>]</b><br/>
-			Chcę żeby to było schludnie jak w skvet-cie ale żeby to bardziej u nas była karuzela z pracującymi osobami / po prostu ich 
-			wszystkich wyświetlić na raz (Potem fajnie by też było dodać osoby które są ochotnikami w Łapie - tam też je dodać)*/}
+			
 			<PeopleSection>
 				<div className="wrapper">
 					<h2>Oto ludzie dbający o to co dla Ciebie najważniejsze</h2>
