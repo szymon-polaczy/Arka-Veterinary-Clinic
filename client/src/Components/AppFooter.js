@@ -9,8 +9,8 @@ const Footer = Styled.footer`
   z-index: 1;
   background: #1b1b1b;
   color: #fff;
-  padding: 0 1rem;
-  width: calc(100% - 4rem - (2 * 1rem));
+  padding: 0 2.5rem;
+  width: calc(100% - 4rem - (2 * 2.5rem));
   height: 25rem;
   display: flex;
   flex-flow: column;
@@ -18,7 +18,7 @@ const Footer = Styled.footer`
 
   .top-section {
     display: grid;
-    gap: 0 20px;
+    gap: 0 10rem;
     height: 16rem;
     grid-template-columns: repeat(6, 1fr);
 
@@ -27,23 +27,20 @@ const Footer = Styled.footer`
       padding: 0;
     }
 
+    .small-imp {
+      font-size: .85rem;
+      margin-top: 1.65rem;
+      max-width: 20ch;
+      line-height: 130%;
+    }
+
     h3 {
 		  font-family: 'Barrio', cursive;
     }
 
-    .advice {
-      margin-top: 1.65rem;
-      font-size: .85rem;
-      max-width: 20ch;
-    }
-
     .map {
-      grid-column: 5 / span 2;
+      grid-column: 4 / span 3;
       filter: grayscale(100%);
-    }
-
-    .about {
-      grid-column: 1 / span 2;
     }
   }
 
@@ -91,13 +88,6 @@ const AppFooter = () => {
 					<img src="Images/partners/royal-canin.png" alt="royal-canin"/>
         </div>
         <div className="top-section">
-          <article className="about">
-            <h3>O Nas</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-              Suspendisse luctus ipsum ut interdum malesuada. Donec tellus nibh,
-              efficitur nec laoreet vel, tempor at libero. Maecenas congue nulla
-              ec quam lacinia accumsan.</p>
-          </article>
           <article>
             <h3>Kontakt</h3>
             <p>Wyślij do nas maila</p>
@@ -105,10 +95,16 @@ const AppFooter = () => {
             <p>Numer awaryjny: 111 222 333</p>
           </article>
           <article>
+            <h3>Godziny Otwarcia</h3>
+            <p>Pon-Pt: 8:00-18:00</p>
+            <p>Sob: 8:00-12:00</p>
+            <p class="small-imp">Nd: Tylko i wyłącznie po wcześniejszym umówieniu</p>
+          </article>
+          <article>
             <h3>Adres</h3>
             <p>ul. Szczecińska 8</p>
             <p>Nysa 48-303</p>
-            <p className="advice">
+            <p className="small-imp">
               Sprawdź dokładnie gdzie jesteśmy na mapce obok
             </p>
           </article>
