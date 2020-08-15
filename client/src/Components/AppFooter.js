@@ -47,6 +47,7 @@ const Footer = Styled.footer`
   .topper-section {
     display: flex;
     height: 6.25rem;
+    align-items: flex-end;
     justify-content: space-around;
 
     img {
@@ -80,13 +81,6 @@ const AppFooter = () => {
     <>
       <MagicFooter></MagicFooter>
       <Footer>
-        <div className="topper-section">
-					<img src="Images/partners/hipra.png" alt="hipra"/>
-					<img src="Images/partners/hipromine.png" alt="hipromine"/>
-					<img src="Images/partners/kruuse.png" alt="kruuse"/>
-					<img src="Images/partners/merial.png" alt="merial"/>
-					<img src="Images/partners/royal-canin.png" alt="royal-canin"/>
-        </div>
         <div className="top-section">
           <article>
             <h3>Kontakt</h3>
@@ -122,6 +116,13 @@ const AppFooter = () => {
             >  
             </iframe>
           </article>
+        </div>
+        <div className="topper-section">
+					<img src="Images/partners/hipra.png" alt="hipra"/>
+					<img src="Images/partners/hipromine.png" alt="hipromine"/>
+					<img src="Images/partners/kruuse.png" alt="kruuse"/>
+					<img src="Images/partners/merial.png" alt="merial"/>
+					<img src="Images/partners/royal-canin.png" alt="royal-canin"/>
         </div>
       </Footer>
         <BottomFooter>
