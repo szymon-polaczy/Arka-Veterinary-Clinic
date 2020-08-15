@@ -134,9 +134,9 @@ const AppHeader = () => {
 						<ul>
 							<li><Link to="/">Strona Główna</Link></li>
 							<li><Link to="/oferta">Oferta</Link></li>
-							<li><Link to="/kontakt">Kontakt</Link></li>
 							<li><Link to="/galeria">Galeria</Link></li>
 							<li><Link to="/blog">Blog</Link></li>
+							<li><Link to="/kontakt">Kontakt</Link></li>
 						</ul>
 					</Navigation>
 				</div>

@@ -57,6 +57,7 @@ const PeopleSection = Styled.section`
 					padding: 0;
 					letter-spacing: 0.1rem;
 					font-family: 'Barrio', cursive;
+					font-size: 1.3rem;
 				}
 
 				h3, p {
@@ -270,12 +271,7 @@ const HomePage = () => {
 			</ThreeStageIntro>
 
 			<SectionBrakerImage>
-				{/*
-				<img src="Images/2.jpg" alt="Kobieta z psem"/>
-				<img src="Images/woman-with-a-dog.jpg" alt="Kobieta z psem"/>
-				<img src="Images/4.jpg"/>
-				*/}
-				<img src="Images/3.jpg"/>
+				<img src="Images/kitty.jpg" alt="Kotek"/>
 			</SectionBrakerImage>
 			
 			<PeopleSection>
@@ -351,15 +347,6 @@ const HomePage = () => {
 					</section>
 				</div>
 			</PeopleSection>
-
-			{/*<div>
-					Icons made by 
-					<a href="https://www.flaticon.com/authors/smashicons" 
-						title="Smashicons">Smashicons</a> 
-					from 
-					<a href="https://www.flaticon.com/" 
-						title="Flaticon">www.flaticon.com</a>
-				</div>*/}
 		</HomePageContainer>
 	)
 }
