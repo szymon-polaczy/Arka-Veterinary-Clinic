@@ -1,6 +1,5 @@
 import React from 'react'
 import Styled from 'styled-components'
-import { Link } from 'react-router-dom'
 
 import WelcomeSection from './HomePageComponents/WelcomeSection'
 
@@ -87,55 +86,6 @@ const PeopleSection = Styled.section`
 				text-align: right;
 			}
 		}
-	}
-`
-
-const VeryExplicitWelcome = Styled.header`
-	position: relative;
-	height: calc(100vh - 5rem);
-	background: #1b1b1b;
-
-	h2 {
-		paddding: 0;
-		margin: 0;
-		text-align: center;
-		color: #fff;
-		font-family: 'Barrio', cursive;
-		text-transform: uppercase;
-		font-size: 12rem;
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		opacity: 0;
-	}
-
-	.top-heading {
-		z-index: 5;
-		animation: slide-in-left 2s forwards;
-	}
-
-	.bottom-heading {
-		z-index: 15;
-		animation: slide-in-right 2s forwards;
-	}
-
-	img {
-		position: absolute;
-		z-index: 10;
-		max-height: 100%;
-		left: 50%;
-		top: 12%;
-		transform: translateX(-50%);
-	}
-
-	@keyframes slide-in-left {
-		0% { opacity: 0; transform: translateX(-100%) translateY(-2em); }
-		100% { opacity: 1; transform: translateX(-50%) translateY(-2em); }
-	}
-
-	@keyframes slide-in-right {
-		0% { opacity: 0; transform: translateX(0) translateY(3rem); }
-		100% { opacity: 1; transform: translateX(-50%) translateY(3rem); }
 	}
 `
 
@@ -240,13 +190,7 @@ const HomePage = () => {
 		<HomePageContainer>
 			<WelcomeSection/>
 
-			{/*}
-
-			<VeryExplicitWelcome>
-				<h2 className="top-heading">Daj głos swojemu</h2>
-				<img src="Images/cat-welcomeinfo.png" alt="Kot" />
-				<h2 className="bottom-heading">kompanowi</h2>
-			</VeryExplicitWelcome>
+			{/*
 
 			<VerySimpleGetToKnowUsSection>
 				<article>

@@ -9,23 +9,30 @@ const Header = Styled.header`
   img {
     max-height: 100%;
     position: relative;
-    top: 9%;
+    top: 11%;
     left: 50%;
-    transform: translate(-50%, 2rem);
+    transform: translate(-50%);
     z-index: 10;
+
+    top: 0;
   }
 
-  --distance-from-center: 2.5rem;
-  --heading-font-size: 2.3rem;
+  --distance-from-center: 3.25rem;
+  --heading-font-size: 3rem;
 
   h2 {
     margin: 0;
+    padding: 0;
     position: absolute;
     top: calc(50% - 2.5rem);
     left: 50%;
     font-size: var(--heading-font-size);
     text-align: center;
     z-index: 15;
+    opacity: 0;
+    text-transform: uppercase;
+
+    width: 100%;
   }
 
   h2:first-child {
@@ -47,48 +54,38 @@ const Header = Styled.header`
   }
 
   @media (min-width: 400px) {
-    --distance-from-center: 3.25rem;
-    --heading-font-size: 3rem;
-  }
-
-  @media (min-width: 768px) {
-    --distance-from-center: 5.25rem;
-    --heading-font-size: 5rem;
-  }
-
-  @media (min-width: 1024px) {
-    --distance-from-center: 8rem;
-    --heading-font-size: 7.5rem;
-  }
-
-  @media (min-width: 1024px) {
-    --distance-from-center: 8rem;
-    --heading-font-size: 7.5rem;
-  }
-
-  @media (min-width: 1320px) {
-    --distance-from-center: 10rem;
-    --heading-font-size: 9.5rem;
-  }
-
-  @media (min-width: 1500px) {
-    --distance-from-center: 10.5rem;
-    --heading-font-size: 10rem;
-		letter-spacing: .5rem;
-    
-    h2:first-child {
-      z-index: 5;
-    }
-
     h2 {
-      top: calc(50% - 5rem);
+      width: auto;
     }
   }
 
-  @media (min-width: 1870px) {
-    --distance-from-center: 12.5rem;
-    --heading-font-size: 12rem;
-		letter-spacing: 1rem;
+  @media (min-width: 600px) {
+    --distance-from-center: 4.35rem;
+    --heading-font-size: 4rem;
+  }
+
+  @media (min-width: 900px) {
+    --distance-from-center: 7.3rem;
+    --heading-font-size: 6.8rem;
+  }
+
+  @media (min-width: 1200px) {
+    img {
+      top: 10%;
+    }
+
+    h2:first-child {
+      z-index 5;
+    }
+
+    --distance-from-center: 9.9rem;
+    --heading-font-size: 9.2rem;
+  }
+
+  @media (min-width: 1800px) {
+    --distance-from-center: 13.5rem;
+    --heading-font-size: 13rem;
+    letter-spacing: .25rem;
   }
 `
 
