@@ -2,6 +2,8 @@ import React from 'react'
 import Styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
+import WelcomeSection from './HomePageComponents/WelcomeSection'
+
 const HomePageContainer = Styled.main`
 	padding: 0;
 	position: relative;
@@ -21,17 +23,18 @@ const PeopleSection = Styled.section`
 		h2 {
 			text-align: center;
 			margin-bottom: .35rem;
-			font-size: 2rem;
-			letter-spacing: 0.05rem;
+			font-size: 2.55rem;
+			letter-spacing: 0.15rem;
+			line-height: 130%;
 			margin-top: 4rem;
 
 			&::after {
 				display: block;
 				content: '';
 				width: 16rem;
-				height: 2px;
+				height: 3px;
 				background: #548493;
-				margin: .65rem auto;
+				margin: 1.5rem auto;
 			}
 		}
 
@@ -66,6 +69,7 @@ const PeopleSection = Styled.section`
 
 				p {
 					line-height: 160%;
+					margin-top: .85rem;
 				}
 
 				.job-title {
@@ -96,7 +100,6 @@ const VeryExplicitWelcome = Styled.header`
 		margin: 0;
 		text-align: center;
 		color: #fff;
-		letter-spacing: 1rem;
 		font-family: 'Barrio', cursive;
 		text-transform: uppercase;
 		font-size: 12rem;
@@ -109,13 +112,11 @@ const VeryExplicitWelcome = Styled.header`
 	.top-heading {
 		z-index: 5;
 		animation: slide-in-left 2s forwards;
-		/*transform: translateX(-50%) translateY(-2em);*/
 	}
 
 	.bottom-heading {
 		z-index: 15;
 		animation: slide-in-right 2s forwards;
-		/*transform: translateX(-50%) translateY(3rem);*/
 	}
 
 	img {
@@ -237,6 +238,9 @@ const SectionBrakerImage = Styled.section`
 const HomePage = () => {
 	return (
 		<HomePageContainer>
+			<WelcomeSection/>
+
+			{/*}
 
 			<VeryExplicitWelcome>
 				<h2 className="top-heading">Daj głos swojemu</h2>
@@ -289,7 +293,7 @@ const HomePage = () => {
 			
 			<PeopleSection>
 				<div className="wrapper">
-					<h2>Oto ludzie dbający o to co dla Ciebie najważniejsze</h2>
+					<h2>Oto ludzie dbający o to co dla Ciebie <br/> Najważniejsze</h2>
 					<section>
 						<article>
 							<img src="Images/people/doktorek.jpg" alt="Doktor"  className="specjalnie-dla-doktorka-na-chwile"/>
@@ -359,7 +363,7 @@ const HomePage = () => {
 						</article>
 					</section>
 				</div>
-			</PeopleSection>
+	</PeopleSection>*/}
 		</HomePageContainer>
 	)
 }

@@ -36,7 +36,7 @@ function App() {
 					<Route path="/"><HomePage/></Route>
 				</Switch>
 				
-				<AppFooter/>
+				{/*<AppFooter/>*/}
 			</Router>
 		</ApplicationWrapper>
 	)
