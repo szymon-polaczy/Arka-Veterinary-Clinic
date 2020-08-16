@@ -95,6 +95,29 @@ const Navigation = Styled.nav`
 			list-style-type: none;
 			display: flex;
 			align-items: center;
+			display: flex;
+			flex-flow: column;
+
+			&::after {
+				display: block;
+				content: '';
+				width: 5rem;
+				height: 2px;
+				margin-top: .3rem;
+				background: #548493;
+				transform: scaleX(0);
+				transition: .15s transform ease-in-out;
+			}
+
+			&:hover {
+				&::after {
+					transform: scaleX(1);
+				}
+
+				a {
+					text-decoration: none;
+				}
+			}
 		}
 	}
 
