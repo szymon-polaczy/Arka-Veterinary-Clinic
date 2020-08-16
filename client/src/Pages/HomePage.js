@@ -1,6 +1,7 @@
 import React from 'react'
 import Styled from 'styled-components'
 
+import Intro from './HomePageComponents/Intro'
 import WelcomeSection from './HomePageComponents/WelcomeSection'
 
 const HomePageContainer = Styled.main`
@@ -118,64 +119,6 @@ const VerySimpleGetToKnowUsSection = Styled.section`
 	}
 `
 
-const ThreeStageIntro = Styled.section`
-	display: flex;
-	align-items: center;
-
-	a {
-		flex: 1;
-		text-align: center;
-		padding: 10rem 2rem;
-
-		article {
-			transition: all .2s ease-out;
-		}
-
-		&:hover {
-			text-decoration: none !IMPORTANT; /*I don't understand why this important need to be here because it should work just fine without it - try to fix this*/
-
-			article {
-				transform: scale(1.15);
-			}
-
-			p::after {
-				transform: scaleX(1);
-			}
-		}
-
-		h2 {
-			margin: .65rem 0;
-			font-family: 'Barrio', cursive;
-			letter-spacing: 0.1rem;
-		}
-
-		p {
-			font-weight: 600;
-
-			&::after {
-				display: block;
-				content: '';
-				width: 10rem;
-				height: 2px;
-				background: #548493;
-				transform: scaleX(0);
-				transition: .15s transform ease-out;
-				margin: .35rem auto 0 auto;
-			}
-		}
-
-		img {
-			max-height: 5rem;
-		}
-	}
-
-	a:nth-child(2) {
-		flex: 2;
-		background: #fff;
-		color: #1b1b1b;
-	}
-`
-
 const SectionBrakerImage = Styled.section`
 	img {
 		max-height: 500px;
@@ -189,6 +132,7 @@ const HomePage = () => {
 	return (
 		<HomePageContainer>
 			<WelcomeSection/>
+			<Intro/>
 
 			{/*
 
@@ -206,30 +150,6 @@ const HomePage = () => {
 				montes, nascetur ridiculus mus. Sed sollicitudin lectus 
 				vel nunc pretium iaculis</p>
 			</VerySimpleGetToKnowUsSection>
-
-			<ThreeStageIntro>
-				<Link to="/blog">
-					<article>
-						<img src="Images/svg/comment-medical-solid.svg" alt="Rozmowa	"/>
-						<h2>Blog</h2>
-						<p>Zrozum lepiej swoją rodzinę</p>
-					</article>
-				</Link>
-				<Link to="/oferta">
-					<article>
-						<img src="Images/svg/child-solid.svg" alt="Człowiek"/>
-						<h2>Nasza Oferta</h2>
-						<p>Co możesz dla niego zrobić?</p>
-					</article>
-				</Link>
-				<Link to="/galeria">
-					<article>
-						<img src="Images/svg/cat-solid.svg" alt="Kotek"/>
-						<h2>Galeria</h2>
-						<p>Poznaj naszych przyjaciół</p>
-					</article>
-				</Link>
-			</ThreeStageIntro>
 
 			<SectionBrakerImage>
 				<img src="Images/kitty.jpg" alt="Kotek"/>

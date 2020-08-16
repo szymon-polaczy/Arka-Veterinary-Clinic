@@ -15,10 +15,6 @@ const ApplicationWrapper = Styled.div`
 	a {
 		color: inherit;
 		text-decoration: none;
-
-		&:hover {
-			text-decoration: underline;
-		}
 	}
 `
 
