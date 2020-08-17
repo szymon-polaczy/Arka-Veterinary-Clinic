@@ -74,7 +74,7 @@ const Intro = () => {
       <div className="big-wrapper">
         <Link to="/blog">
           <article>
-            <img src="Images/svg/comment-medical-solid.svg" alt="Rozmowa	"/>
+            <img src="Images/svg/comment-medical-solid.svg" alt="Rozmowa"/>
             <h2>Blog</h2>
             <p>Zrozum lepiej swoją rodzinę</p>
           </article>
