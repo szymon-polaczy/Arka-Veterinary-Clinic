@@ -2,8 +2,10 @@ import React from "react";
 import Styled from "styled-components";
 
 const People = Styled.section`
-  padding: 1rem;
+  padding: 3rem 1rem;
   text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
 
   h2 {
     font-size: 2.5em;
@@ -32,7 +34,7 @@ const People = Styled.section`
     h3, h4 {
       margin: 0;
       padding: 0;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       letter-spacing: .1rem;
       font-family: 'Barrio', cursive;
     }
@@ -44,6 +46,49 @@ const People = Styled.section`
 
     p {
       line-height: 130%;
+    }
+
+    @media (min-width: 900px) {
+      display: flex;
+      flex-flow: row;
+      align-items: center;
+      justify-content: center;
+      text-align: left;
+      margin-top: 2rem;
+
+      img {
+        padding: 2rem;
+        width: 320px;
+        height: 320px;
+      }
+
+      p {
+        font-size: 1.1rem;
+      }
+
+      &:nth-child(even) {
+        flex-flow: row-reverse;
+        text-align: right;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      margin-top: 0;
+
+      img {
+        width: 350px;
+        height: 350px;
+        padding: 1rem 2rem;
+      }
+
+      h3, h4 {
+        font-size: 1.4rem;
+      }
+
+      p {
+        font-size: 1.2rem
+        line-height: 140%;
+      }
     }
   }
 `;
