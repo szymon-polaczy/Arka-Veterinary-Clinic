@@ -4,6 +4,7 @@ import Styled from 'styled-components'
 import WelcomeSection from './HomePageComponents/WelcomeSection'
 import Intro from './HomePageComponents/Intro'
 import ImageSection from './HomePageComponents/ImageSection'
+import AboutUsSection from './HomePageComponents/AboutUsSection'
 
 const HomePageContainer = Styled.main`
 	padding: 0;
@@ -126,6 +127,7 @@ const HomePage = () => {
 	return (
 		<HomePageContainer>
 			<WelcomeSection/>
+			<AboutUsSection/>
 			<Intro/>
 			<ImageSection/>
 

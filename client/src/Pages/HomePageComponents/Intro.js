@@ -16,6 +16,11 @@ const Section = Styled.section`
     a {
       text-align: center;
       padding: 3rem;
+
+      h2 {
+        letter-spacing: .1rem;
+			  font-family: 'Barrio', cursive;
+      }
     
       &:nth-child(2) {
         background: #fff;

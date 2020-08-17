@@ -21,6 +21,11 @@ const Footer = Styled.footer`
     article {
       margin-top: 1.65rem;
 
+      h3 {
+        letter-spacing: .1rem;
+			  font-family: 'Barrio', cursive;
+      }
+
       &:first-child {
         margin: 0;
       }
