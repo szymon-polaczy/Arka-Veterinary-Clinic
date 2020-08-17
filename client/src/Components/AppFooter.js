@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import GMap from './GMap'
 
 const Footer = Styled.footer`
-  margin: 5rem auto 2rem auto;
+  margin: 0 auto 2rem auto;
   background: #1b1b1b;
   color: #fff;
   padding: 1rem;

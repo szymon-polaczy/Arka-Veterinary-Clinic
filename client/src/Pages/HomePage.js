@@ -5,6 +5,7 @@ import WelcomeSection from './HomePageComponents/WelcomeSection'
 import Intro from './HomePageComponents/Intro'
 import ImageSection from './HomePageComponents/ImageSection'
 import AboutUsSection from './HomePageComponents/AboutUsSection'
+import PeopleSection from './HomePageComponents/PeopleSection'
 
 const HomePageContainer = Styled.main`
 	padding: 0;
@@ -16,7 +17,7 @@ const HomePageContainer = Styled.main`
 	border-bottom: 10px solid #548493;
 `;
 
-const PeopleSection = Styled.section`
+const PeopleSction = Styled.section`
 	padding-bottom: 5rem;
 	border-bottom: .65rem solid #548493;
 
@@ -94,35 +95,6 @@ const PeopleSection = Styled.section`
 	}
 `
 
-const VerySimpleGetToKnowUsSection = Styled.section`
-	padding: 3.5rem 5rem;
-	letter-spacing: 0.1rem;
-	line-height: 145%;
-	display: flex;
-	justify-content: space-between;
-	background: #548493;
-
-	p {
-		max-width: 40ch;
-	}
-
-	article {
-		display: flex;
-		align-items: center;
-
-		a {
-			width: 17rem;
-			font-family: 'Barrio', cursive;
-			letter-spacing: 0.1rem;
-			font-size: 1.2rem;
-		}
-
-		img {
-			max-height: 3.5rem;
-		}
-	}
-`
-
 const HomePage = () => {
 	return (
 		<HomePageContainer>
@@ -130,97 +102,7 @@ const HomePage = () => {
 			<AboutUsSection/>
 			<Intro/>
 			<ImageSection/>
-
-			{/*
-
-			<VerySimpleGetToKnowUsSection>
-				<article>
-					<Link to="/kontakt">Poznaj nas bliżej</Link>
-					<img src="Images/svg/crow-solid.svg" alt="Ptaszek"/>
-				</article>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-				Suspendisse luctus ipsum ut interdum malesuada. Donec tellus nibh,
-				efficitur nec laoreet vel, tempor at libero. Maecenas congue nulla
-				ec quam lacinia accumsan. Etiam interdum varius venenatis. Quisque 
-				nec congue ipsum, et tempus risus. Vestibulum lacinia sed magna non 
-				euismod. Orci varius natoque penatibus et magnis dis parturient 
-				montes, nascetur ridiculus mus. Sed sollicitudin lectus 
-				vel nunc pretium iaculis</p>
-			</VerySimpleGetToKnowUsSection>
-			
-			<PeopleSection>
-				<div className="wrapper">
-					<h2>Oto ludzie dbający o to co dla Ciebie <br/> Najważniejsze</h2>
-					<section>
-						<article>
-							<img src="Images/people/doktorek.jpg" alt="Doktor"  className="specjalnie-dla-doktorka-na-chwile"/>
-							<section>
-								<h3>Doktorek</h3>
-								<h3 className="job-title">Technik Weterynari</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-								Suspendisse luctus ipsum ut interdum malesuada. Donec tellus nibh,
-								efficitur nec laoreet vel, tempor at libero. Maecenas congue nulla
-								ec quam lacinia accumsan. Etiam interdum varius venenatis.</p>
-							</section>
-						</article>
-						<article>
-							<img src="Images/people/iza.jpg" alt="Iza"/>
-							<section>
-								<h3>Iza</h3>
-								<h3 className="job-title">Technik Weterynari</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-								Suspendisse luctus ipsum ut interdum malesuada. Donec tellus nibh,
-								efficitur nec laoreet vel, tempor at libero. Maecenas congue nulla
-								ec quam lacinia accumsan. Etiam interdum varius venenatis.</p>
-							</section>
-						</article>
-						<article>
-							<img src="Images/people/michalina.jpg" alt="Michalina"/>
-							<section>
-								<h3>Michalina</h3>
-								<h3 className="job-title">Technik Weterynari</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-								Suspendisse luctus ipsum ut interdum malesuada. Donec tellus nibh,
-								efficitur nec laoreet vel, tempor at libero. Maecenas congue nulla
-								ec quam lacinia accumsan. Etiam interdum varius venenatis.</p>
-							</section>
-						</article>
-						<article>
-							<img src="Images/people/julia.jpg" alt="Żaneta"/>
-							<section>
-								<h3>Julia</h3>
-								<h3 className="job-title">Technik Weterynari</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-								Suspendisse luctus ipsum ut interdum malesuada. Donec tellus nibh,
-								efficitur nec laoreet vel, tempor at libero. Maecenas congue nulla
-								ec quam lacinia accumsan. Etiam interdum varius venenatis.</p>
-							</section>
-						</article>
-						<article>
-							<img src="Images/people/krzysiu.jpg" alt="Krzysiek"/>
-							<section>
-								<h3>Krzysiek</h3>
-								<h3 className="job-title">Technik Weterynari</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-								Suspendisse luctus ipsum ut interdum malesuada. Donec tellus nibh,
-								efficitur nec laoreet vel, tempor at libero. Maecenas congue nulla
-								ec quam lacinia accumsan. Etiam interdum varius venenatis.</p>
-							</section>
-						</article>
-						<article>
-							<img src="Images/people/maria.jpg" alt="Maria"/>
-							<section>
-								<h3>Maria</h3>
-								<h3 className="job-title">Technik Weterynari</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-								Suspendisse luctus ipsum ut interdum malesuada. Donec tellus nibh,
-								efficitur nec laoreet vel, tempor at libero. Maecenas congue nulla
-								ec quam lacinia accumsan. Etiam interdum varius venenatis.</p>
-							</section>
-						</article>
-					</section>
-				</div>
-	</PeopleSection>*/}
+			<PeopleSection/>
 		</HomePageContainer>
 	)
 }
