@@ -1,8 +1,9 @@
 import React from 'react'
 import Styled from 'styled-components'
 
-import Intro from './HomePageComponents/Intro'
 import WelcomeSection from './HomePageComponents/WelcomeSection'
+import Intro from './HomePageComponents/Intro'
+import ImageSection from './HomePageComponents/ImageSection'
 
 const HomePageContainer = Styled.main`
 	padding: 0;
@@ -10,6 +11,8 @@ const HomePageContainer = Styled.main`
 	z-index: 80;
 	background: #1b1b1b;
 	color: #fff;
+
+	border-bottom: 10px solid #548493;
 `;
 
 const PeopleSection = Styled.section`
@@ -119,20 +122,12 @@ const VerySimpleGetToKnowUsSection = Styled.section`
 	}
 `
 
-const SectionBrakerImage = Styled.section`
-	img {
-		max-height: 500px;
-		width: 100%;
-		object-fit: cover;
-		object-position: 50% 64%;
-	}
-`
-
 const HomePage = () => {
 	return (
 		<HomePageContainer>
 			<WelcomeSection/>
 			<Intro/>
+			<ImageSection/>
 
 			{/*
 
@@ -150,10 +145,6 @@ const HomePage = () => {
 				montes, nascetur ridiculus mus. Sed sollicitudin lectus 
 				vel nunc pretium iaculis</p>
 			</VerySimpleGetToKnowUsSection>
-
-			<SectionBrakerImage>
-				<img src="Images/kitty.jpg" alt="Kotek"/>
-			</SectionBrakerImage>
 			
 			<PeopleSection>
 				<div className="wrapper">

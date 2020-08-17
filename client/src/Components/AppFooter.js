@@ -9,6 +9,7 @@ const Footer = Styled.footer`
   background: #1b1b1b;
   color: #fff;
   padding: 1rem;
+  max-width: 2000px;
 
   .info-section {
     .small-imp {
@@ -90,7 +91,8 @@ const Footer = Styled.footer`
   @media (min-width: 1800px) {
     position: fixed;
     bottom: 3rem;
-    left: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
   }
 `
 

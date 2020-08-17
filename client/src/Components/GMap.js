@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
 
-class GMap extends Component {
-  constructor(props) {
-    super(props);
-  }
-  
+class GMap extends Component {  
   render() {
     return (
       <iframe 
