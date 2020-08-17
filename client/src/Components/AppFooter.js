@@ -2,6 +2,8 @@ import React from 'react'
 import Styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
+import GMap from './GMap'
+
 const Footer = Styled.footer`
   margin: 5rem auto 2rem auto;
   background: #1b1b1b;
@@ -28,6 +30,39 @@ const Footer = Styled.footer`
       height: 15rem;
       padding: 1rem 0;
     }
+
+    @media (min-width: 600px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      article {
+        margin: 0;
+      }
+    }
+
+    @media (min-width: 900px) {
+      grid-template-columns: repeat(3, 1fr);
+
+      .map {
+        grid-column: 1 / span 3;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      grid-template-columns: repeat(4, 1fr);
+
+      .map {
+        grid-column: unset;
+      }
+    }
+
+    @media (min-width: 1800px) {
+      grid-template-columns: repeat(5, 1fr);
+
+      .map {
+        grid-column: 4 / span 2;
+      }
+    }
   }
 
   .partners-section {
@@ -41,6 +76,21 @@ const Footer = Styled.footer`
       max-width: 5rem;
       margin: .35rem;
     }
+  }
+
+  @media (min-width: 900px) {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 1200px) {
+    margin-top: 3rem;
+    width: calc(100vw - 8rem);
+  }
+
+  @media (min-width: 1800px) {
+    position: fixed;
+    bottom: 3rem;
+    left: 2.5rem;
   }
 `
 
@@ -67,9 +117,40 @@ const BottomFooter = Styled.footer`
       padding: .35rem;
     }
   }
-`
 
-const MagicFooter = Styled.div``
+  @media (min-width: 900px) {
+    height: 3rem;
+
+    .wrapper {
+      flex-flow: row;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    section {
+      flex-flow: row;
+      align-items: center;
+
+      padding-left: 2rem;
+
+      a:first-child {
+        padding-right: .65rem;
+      }
+    }
+  }
+
+  @media (min-width: 1800px) {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+`
+ 
+const MagicFooter = Styled.div`
+  @media (min-width: 1800px) {
+    height: 31rem;
+  }
+`
 
 const AppFooter = () => {
   return (
@@ -98,17 +179,7 @@ const AppFooter = () => {
             </p>
           </article>
           <article className="map">
-            <iframe 
-              width="100%" height="100%" 
-              id="gmap_canvas" 
-              src="https://maps.google.com/maps?q=%20Szczeci%C5%84ska%208%2048-303%20Nysa&t=&z=13&ie=UTF8&iwloc=&output=embed" 
-              frameBorder="0" 
-              scrolling="no"
-              marginHeight="0" 
-              marginWidth="0"
-              title="nasze-położenie-na-mapie-google"
-            >  
-            </iframe>
+            <GMap title="Nasze-Położenie-Stopka"/>
           </article>
         </div>
         <div className="partners-section">
