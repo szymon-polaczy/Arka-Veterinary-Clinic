@@ -110,7 +110,7 @@ const OfferPage = () => {
 
   return (
     <OfferSection>
-      {(data != undefined ) && console.log(data.products[0].name)}
+      {(data !== undefined ) && console.log(data.products[0].name)}
       <article>
         <h2>Profilaktyka</h2>
         <img src="Images/prof/1.jpg" alt=""/>

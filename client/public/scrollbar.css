@@ -1,0 +1,23 @@
+body::-webkit-scrollbar {
+  width: 11px;
+}
+
+body {
+  scrollbar-width: thin;
+  scrollbar-color: #90A4AE #CFD8DC;
+  
+  color: #222;
+  overflow-x: hidden;
+  font-family: 'Lato', sans-serif;
+  background: url("../images/so-white.png");
+}
+
+body::-webkit-scrollbar-track {
+  background: #CFD8DC;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #548493;
+  border-radius: 6px;
+  border: 3px solid #CFD8DC;
+}

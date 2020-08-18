@@ -131,7 +131,7 @@ const Navigation = Styled.nav`
 		z-index: -1;
 		background: #1b1b1b;
 		transition: .3s all ease-in-out;
-		box-shadow: 0 .5rem .5rem #d0d0d0;
+		border-bottom: 
 		padding: 1rem;
 
 		ul {
@@ -155,11 +155,11 @@ const AppHeader = () => {
 					</button>
 					<Navigation open={open}>
 						<ul>
-							<li><Link to="/">Strona Główna</Link></li>
-							<li><Link to="/oferta">Oferta</Link></li>
-							<li><Link to="/galeria">Galeria</Link></li>
-							<li><Link to="/blog">Blog</Link></li>
-							<li><Link to="/kontakt">Kontakt</Link></li>
+							<li><Link to="/" onClick={() => setOpen(!open)}>Strona Główna</Link></li>
+							<li><Link to="/oferta" onClick={() => setOpen(!open)}>Oferta</Link></li>
+							<li><Link to="/galeria" onClick={() => setOpen(!open)}>Galeria</Link></li>
+							<li><Link to="/blog" onClick={() => setOpen(!open)}>Blog</Link></li>
+							<li><Link to="/kontakt" onClick={() => setOpen(!open)}>Kontakt</Link></li>
 						</ul>
 					</Navigation>
 				</div>
