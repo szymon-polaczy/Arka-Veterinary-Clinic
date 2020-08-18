@@ -8,40 +8,16 @@ const AboutUs = Styled.section`
   max-width: 2000px;
   margin: 0 auto;
 
-  .wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  section {
+  a {
+    display: block;
+    font-size: 1.5rem;
+    letter-spacing: .1rem;
+    font-family: 'Barrio', cursive;
     text-align: center;
-    display: flex;
-    flex-flow: column-reverse;
-    align-items: center;
+    margin: 0 auto .5rem auto;
 
-    a {
-      font-size: 1.5rem;
-      letter-spacing: .1rem;
-      padding-top: .3rem;
-      font-family: 'Barrio', cursive;
-      margin-bottom: .5rem;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
-    img {
-      max-width: 5rem;
-    }
-
-    @media (min-width: 1200px) {
-      flex-flow: row;
-      width: 20rem;
-
-      img {
-        padding-left: .5rem;
-      }
+    &:hover {
+      text-decoration: underline;
     }
   }
 
@@ -56,31 +32,18 @@ const AboutUs = Styled.section`
     padding: 3rem;
 
     .wrapper {
-      display: flex;
+      display: grid;
       align-items: center;
-      justify-content: space-around;
+      grid-template-columns: repeat(2, 1fr);
     }
 
     p {
-      margin: unset;
-      margin-left: 10rem;
-      padding: 0;
+      margin: 0 auto;
     }
 
-    section {
-      img {
-        display: none;
-      }
-
-      a {
-        display: flex;
-        flex-flow: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        width: 5rem;
-        font-size: 3rem;
-      }
+    a {
+      width: min-content;
+      font-size: 3rem;
     }
   }
 `
@@ -89,10 +52,7 @@ const AboutUsSection = () => {
   return (
     <AboutUs>
       <div className="wrapper">
-        <section>
-            <Link to="/kontakt">Poznaj nas bliżej</Link>
-            <img src="Images/svg/crow-solid.svg" alt="Ptaszek"/>
-        </section>
+        <Link to="/kontakt">Poznaj nas bliżej</Link>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
         Suspendisse luctus ipsum ut interdum malesuada. Donec tellus nibh,
         efficitur nec laoreet vel, tempor at libero. Maecenas congue nulla
