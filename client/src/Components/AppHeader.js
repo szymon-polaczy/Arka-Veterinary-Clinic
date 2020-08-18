@@ -96,6 +96,7 @@ const Navigation = Styled.nav`
 			display: flex;
 			align-items: center;
 			display: flex;
+			justify-content: center;
 			flex-flow: column;
 
 			&::after {
@@ -131,8 +132,8 @@ const Navigation = Styled.nav`
 		z-index: -1;
 		background: #1b1b1b;
 		transition: .3s all ease-in-out;
-		border-bottom: 
-		padding: 1rem;
+		border-bottom: 5px solid #548493;
+		padding: 1rem 0;
 
 		ul {
 			flex-flow: column;
@@ -159,7 +160,7 @@ const AppHeader = () => {
 							<li><Link to="/oferta" onClick={() => setOpen(!open)}>Oferta</Link></li>
 							<li><Link to="/galeria" onClick={() => setOpen(!open)}>Galeria</Link></li>
 							<li><Link to="/blog" onClick={() => setOpen(!open)}>Blog</Link></li>
-							<li><Link to="/kontakt" onClick={() => setOpen(!open)}>Kontakt</Link></li>
+							<li><Link to="/kontakt">Kontakt</Link></li>
 						</ul>
 					</Navigation>
 				</div>
