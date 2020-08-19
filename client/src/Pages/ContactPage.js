@@ -22,7 +22,7 @@ const InfoAndMapSection = Styled.section`
     min-height: 50vh;
 
     iframe {
-      height: 50vh;
+      min-height: 50vh;
       filter: grayscale(100%);
     }
   }
@@ -80,7 +80,7 @@ const AboutUsAndFormSection = Styled.section`
 
   article {
     flex: 1;
-    height: 50vh;
+    min-height: 50vh;
   }
 
   textarea {

@@ -167,9 +167,9 @@ const MagicFooter = Styled.div`
   }
 `
 
-const partnerLogo = (partner) => {
+const partnerLogo = ({logo, alt, title, id}) => {
   return (
-    <img src={partner.logo.url} alt={partner.alt} title={partner.title} key={partner.id}/>
+    <img src={logo.url} alt={alt} title={title} key={id}/>
   )
 }
 
