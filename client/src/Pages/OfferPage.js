@@ -1,11 +1,6 @@
 import React from 'react'
 import Styled from 'styled-components'
 
-import { useQuery } from '@apollo/react-hooks'
-import gpl from 'graphql-tag'
-
-
-
 const OfferSection = Styled.section`
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -98,19 +93,8 @@ const OfferSection = Styled.section`
 `
 
 const OfferPage = () => {
-  const query = gpl`
-    query MyQuery {
-      products {
-        name
-      }
-    }
-  `
-
-  const { data } = useQuery(query);
-
   return (
     <OfferSection>
-      {(data !== undefined ) && console.log(data.products[0].name)}
       <article>
         <h2>Profilaktyka</h2>
         <img src="Images/prof/1.jpg" alt=""/>

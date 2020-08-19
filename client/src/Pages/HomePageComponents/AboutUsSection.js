@@ -1,3 +1,5 @@
+import { useQuery } from '@apollo/react-hooks'
+import gpl from 'graphql-tag'
 import React from 'react'
 import Styled from 'styled-components'
 import { Link } from 'react-router-dom'
@@ -49,18 +51,21 @@ const AboutUs = Styled.section`
 `
 
 const AboutUsSection = () => {
+  const query = gpl`
+    query MyQuery {
+      aboutUses {
+        short
+      }
+    }
+  `
+  
+  const { data } = useQuery(query); 
+
   return (
     <AboutUs>
       <div className="wrapper">
         <Link to="/kontakt">Poznaj nas bliżej</Link>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Suspendisse luctus ipsum ut interdum malesuada. Donec tellus nibh,
-        efficitur nec laoreet vel, tempor at libero. Maecenas congue nulla
-        ec quam lacinia accumsan. Etiam interdum varius venenatis. Quisque 
-        nec congue ipsum, et tempus risus. Vestibulum lacinia sed magna non 
-        euismod. Orci varius natoque penatibus et magnis dis parturient 
-        montes, nascetur ridiculus mus. Sed sollicitudin lectus 
-        vel nunc pretium iaculis</p>
+        <p>{data === undefined ? 'Loading...' : data.aboutUses[0].short}</p>
       </div>
     </AboutUs>
   )

@@ -1,3 +1,5 @@
+import { useQuery } from '@apollo/react-hooks'
+import gpl from 'graphql-tag'
 import React from "react";
 import Styled from "styled-components";
 
@@ -93,90 +95,41 @@ const People = Styled.section`
   }
 `;
 
+const getOneWorker = ({photo, fullName, education, description}) => {
+  return (
+    <article>
+      <img src={photo.url} alt={fullName} title={fullName}/>
+      <section>
+        <h3>{fullName}</h3>
+        <h4>{education}</h4>
+        <p>{description}</p>
+      </section>
+    </article>
+  )
+}
+
 const PeopleSection = () => {
+  const query = gpl`
+    query MyQuery {
+      workers {
+        photo {
+          url
+        }
+        fullName
+        education
+        description
+      }
+    }
+  `
+  
+  const { data } = useQuery(query); 
+
   return (
     <People>
       <h2>Oto ludzie dbający o to co dla Ciebie <br/> Najważniejsze</h2>
       <section>
-        <article>
-          <img src="Images/people/doktorek.jpg" alt="Doktor"
-            className="specjalnie-dla-doktorka-na-chwile" />
-          <section>
-            <h3>Doktorek</h3>
-            <h4>Technik Weterynari</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse luctus ipsum ut interdum malesuada. Donec tellus nibh,
-              efficitur nec laoreet vel, tempor at libero. Maecenas congue nulla
-              ec quam lacinia accumsan. Etiam interdum varius venenatis.
-            </p>
-          </section>
-        </article>
-        <article>
-          <img src="Images/people/iza.jpg" alt="Iza" />
-          <section>
-            <h3>Iza</h3>
-            <h4>Technik Weterynari</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse luctus ipsum ut interdum malesuada. Donec tellus nibh,
-              efficitur nec laoreet vel, tempor at libero. Maecenas congue nulla
-              ec quam lacinia accumsan. Etiam interdum varius venenatis.
-            </p>
-          </section>
-        </article>
-        <article>
-          <img src="Images/people/michalina.jpg" alt="Michalina" />
-          <section>
-            <h3>Michalina</h3>
-            <h4>Technik Weterynari</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse luctus ipsum ut interdum malesuada. Donec tellus nibh,
-              efficitur nec laoreet vel, tempor at libero. Maecenas congue nulla
-              ec quam lacinia accumsan. Etiam interdum varius venenatis.
-            </p>
-          </section>
-        </article>
-        <article>
-          <img src="Images/people/julia.jpg" alt="Żaneta" />
-          <section>
-            <h3>Julia</h3>
-            <h4>Technik Weterynari</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse luctus ipsum ut interdum malesuada. Donec tellus nibh,
-              efficitur nec laoreet vel, tempor at libero. Maecenas congue nulla
-              ec quam lacinia accumsan. Etiam interdum varius venenatis.
-            </p>
-          </section>
-        </article>
-        <article>
-          <img src="Images/people/krzysiu.jpg" alt="Krzysiek" />
-          <section>
-            <h3>Krzysiek</h3>
-            <h4>Technik Weterynari</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse luctus ipsum ut interdum malesuada. Donec tellus nibh,
-              efficitur nec laoreet vel, tempor at libero. Maecenas congue nulla
-              ec quam lacinia accumsan. Etiam interdum varius venenatis.
-            </p>
-          </section>
-        </article>
-        <article>
-          <img src="Images/people/maria.jpg" alt="Maria" />
-          <section>
-            <h3>Maria</h3>
-            <h4>Technik Weterynari</h4>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse luctus ipsum ut interdum malesuada. Donec tellus nibh,
-              efficitur nec laoreet vel, tempor at libero. Maecenas congue nulla
-              ec quam lacinia accumsan. Etiam interdum varius venenatis.
-            </p>
-          </section>
-        </article>
+      {data === undefined ? 'Loading...' : 
+        data.workers.map(worker => getOneWorker(worker))}
       </section>
     </People>
   );

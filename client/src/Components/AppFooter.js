@@ -1,4 +1,7 @@
+import { useQuery } from '@apollo/react-hooks'
+import gpl from 'graphql-tag'
 import React from 'react'
+import renderHTML from 'react-render-html'
 import Styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
@@ -16,6 +19,11 @@ const Footer = Styled.footer`
       font-size: .85rem;
       max-width: 25ch;
       line-height: 130%;
+    }
+
+    .imp {
+      line-height: 130%;
+      text-decoration: underline;
     }
 
     article {
@@ -159,7 +167,39 @@ const MagicFooter = Styled.div`
   }
 `
 
+const partnerLogo = (partner) => {
+  return (
+    <img src={partner.logo.url} alt={partner.alt} title={partner.title} key={partner.id}/>
+  )
+}
+
 const AppFooter = () => {
+  const query = gpl`
+    query MyQuery {
+      contactInfos {
+        address {
+          html
+        }
+        openHours {
+          html
+        }
+        contact {
+          html
+        }
+      }
+      ourPartnersImgs {
+        id
+        alt
+        title
+        logo {
+          url
+        }
+      }
+    }
+  `
+  
+  const { data } = useQuery(query);
+
   return (
     <>
       <MagicFooter></MagicFooter>
@@ -167,34 +207,22 @@ const AppFooter = () => {
         <div className="info-section">
           <article>
             <h3>Kontakt</h3>
-            <p>Wyślij do nas maila</p>
-            <p>Nasz stacjonarny: 444 555 666</p>
-            <p>Numer awaryjny: 111 222 333</p>
+            {data === undefined ? 'Loading...' : renderHTML(data.contactInfos[0].contact.html)}
           </article>
           <article>
             <h3>Godziny Otwarcia</h3>
-            <p>Pon-Pt: 8:00-18:00</p>
-            <p>Sob: 8:00-12:00</p>
-            <p className="small-imp">Nd: Tylko i wyłącznie po wcześniejszym umówieniu</p>
+            {data === undefined ? 'Loading...' : renderHTML(data.contactInfos[0].openHours.html)}
           </article>
           <article>
             <h3>Adres</h3>
-            <p>ul. Szczecińska 8</p>
-            <p>Nysa 48-303</p>
-            <p className="small-imp">
-              Sprawdź dokładnie gdzie jesteśmy na mapce obok
-            </p>
+            {data === undefined ? 'Loading...' : renderHTML(data.contactInfos[0].address.html)}
           </article>
           <article className="map">
             <GMap title="Nasze-Położenie-Stopka"/>
           </article>
         </div>
         <div className="partners-section">
-					<img src="Images/partners/hipra.png" alt="hipra"/>
-					<img src="Images/partners/hipromine.png" alt="hipromine"/>
-					<img src="Images/partners/kruuse.png" alt="kruuse"/>
-					<img src="Images/partners/merial.png" alt="merial"/>
-					<img src="Images/partners/royal-canin.png" alt="royal-canin"/>
+          {data === undefined ? 'Loading...' : data.ourPartnersImgs.map((partner) => partnerLogo(partner))}
         </div>
       </Footer>
       <BottomFooter>

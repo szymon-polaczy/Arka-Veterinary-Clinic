@@ -1,4 +1,7 @@
+import { useQuery } from '@apollo/react-hooks'
+import gpl from 'graphql-tag'
 import React from 'react'
+import renderHTML from 'react-render-html'
 import Styled from 'styled-components'
 
 import GMap from '../Components/GMap'
@@ -41,7 +44,19 @@ const InfoAndMapSection = Styled.section`
     grid-area: 'imp';
     font-size: 1.5rem;
     letter-spacing: .2rem;
-    text-align: center;
+    width: 100%;
+    margin: 0;
+    line-height: 170%;
+
+    h2 {
+      max-width: 100%;
+      text-align: left;
+    }
+
+    p {
+      padding: 0;
+      margin: 0;
+    }
   }
 
   section:not(.very-imp) {
@@ -158,33 +173,50 @@ const AboutUsAndFormSection = Styled.section`
 `
 
 const ContactPage = () => {
+  const query = gpl`
+    query MyQuery {
+      aboutUses {
+        long
+      }
+      contactInfos {
+        address {
+          html
+        }
+        openHours {
+          html
+        }
+        contact {
+          html
+        }
+      }
+      veryImportantInfos {
+        info {
+          html
+        }
+      }
+    }
+  `
+  
+  const { data } = useQuery(query); 
+
   return (
     <>
       <InfoAndMapSection>
         <article>
           <section className="very-imp">
-            <h2>
-              Uwaga, uwaga. Dunno, coś tam coś tam. Make me fucking care. 
-              And other very important things.
-            </h2>
+            <h2>{data === undefined ? 'Loading...' : renderHTML(data.veryImportantInfos[0].info.html)}</h2>
           </section>
           <section>
             <h2>Kontakt</h2>
-            <p>Wyślij do nas maila</p>
-            <p>Nasz numer stacjonarny: 444 555 666</p>
-            <p className="imp">Nasz awaryjny: 111 222 333</p>
+            {data === undefined ? 'Loading...' : renderHTML(data.contactInfos[0].contact.html)}
           </section>
           <section>
             <h2>Godziny Otwarcia</h2>
-            <p>Pon-Pt: 8:00-18:00</p>
-            <p>Sob: 8:00-12:00</p>
-            <p>Nd: Tylko po wcześniejszym umówieniu</p>
+            {data === undefined ? 'Loading...' : renderHTML(data.contactInfos[0].openHours.html)}
           </section>
           <section>
             <h2>Nasz Adres</h2>
-            <p>ul. Szczecińska 8</p>
-            <p>Nysa 48-303</p>
-            <p>Sprawdź dokładnie gdzie jesteśmy na mapce obok</p>
+            {data === undefined ? 'Loading...' : renderHTML(data.contactInfos[0].address.html)}
           </section>
         </article>
         <article className="map">
@@ -208,26 +240,7 @@ const ContactPage = () => {
         </article>
         <article className="about">
           <h2>Troszkę więcej o nas i naszym celu</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Suspendisse luctus ipsum ut interdum malesuada. Donec tellus nibh,
-            efficitur nec laoreet vel, tempor at libero. Maecenas congue nulla
-            ec quam lacinia accumsan. Etiam interdum varius venenatis. Quisque 
-            nec congue ipsum, et tempus risus. Vestibulum lacinia sed magna non 
-            euismod. Orci varius natoque penatibus et magnis dis parturient 
-            montes, nascetur ridiculus mus. Sed sollicitudin lectus 
-            vel nunc pretium iaculiLorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Suspendisse luctus ipsum ut interdum malesuada. Donec tellus nibh,
-            efficitur nec laoreet vel, tempor at libero. Maecenas congue nulla
-            ec quam lacinia accumsan. Etiam interdum varius venenatis. Quisque 
-            nec congue ipsum, et tempus risus. Vestibulum lacinia sed magna non 
-            euismod. Orci varius natoque penatibus et magnis dis parturient 
-            montes, nascetur ridiculus mus. Sed sollicitudin lectus 
-            vel nunc pretium iaculiLorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Suspendisse luctus ipsum ut interdum malesuada. Donec tellus nibh,
-            efficitur nec laoreet vel, tempor at libero. Maecenas congue nulla
-            ec quam lacinia accumsan. Etiam interdum varius venenatis. 
-          </p>
+          <p>{data === undefined ? 'Loading...' : data.aboutUses[0].long}</p>
         </article>
       </AboutUsAndFormSection>
     </>
