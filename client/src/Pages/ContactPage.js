@@ -6,7 +6,7 @@ import AboutUs from './ContactPageComponents/AboutUs'
 import ContactInfo from './ContactPageComponents/ContactInfo'
 import ContactForm from './ContactPageComponents/ContactForm'
 
-const AboutUsAndFormSection = Styled.section`
+/*const AboutUsAndFormSection = Styled.section`
   display: flex;
   flex-flow: row-reverse;
   align-items: center;
@@ -65,7 +65,7 @@ const AboutUsAndFormSection = Styled.section`
       }
     }
   }
-`
+`*/
 
 const ContactContainer = Styled.section`
   iframe {
