@@ -14,6 +14,11 @@ const Container = Styled.article`
     padding: 1.5rem 1rem;
   }
 
+  section {
+    width: fit-content;
+    margin: 0 auto;
+  }
+
   section:not(.very-imp) {
     padding: .9rem 1rem;
 
@@ -35,6 +40,23 @@ const Container = Styled.article`
 
     p {
       line-height: 130%;
+    }
+  }
+
+  @media (min-width: 600px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 900px) {
+    padding: 3.5rem 1rem;
+    gap: 20px;
+    
+    section:not(.very-imp), .very-imp {
+      padding: 0;
+      margin: 0;
+      text-align: left;
+      width: 100%;
     }
   }
 `

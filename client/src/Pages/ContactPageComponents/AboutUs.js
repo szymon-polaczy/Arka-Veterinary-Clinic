@@ -21,6 +21,27 @@ const Container = Styled.article`
     line-height: 135%;
     font-size: 1.2rem;
   }
+
+  @media (min-width: 600px) {
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  @media (min-width: 900px) {
+    background: #fff;
+    color: #1b1b1b;
+
+    p {
+      padding: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    p {
+      font-size: 1.2rem;
+    }
+  }
 `
 
 const AboutUs = () => {

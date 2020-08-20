@@ -10,6 +10,5 @@ ReactDOM.render(
   document.getElementById('root')
 )
 
-//You want to have you'r sile cashed to work offline - change - unregister() to register()
-//serviceWorker.unregister()
-serviceWorker.register()
+serviceWorker.unregister()
+//serviceWorker.register()

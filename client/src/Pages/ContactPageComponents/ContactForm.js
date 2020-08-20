@@ -6,10 +6,11 @@ import { formValidation } from './FormValidation'
 
 const Container = Styled.article`
   h2 {
-    padding: 1.5rem 1rem;
+    padding: 1.5rem 1rem 0 1rem;
     font-family: 'Barrio', cursive;
     text-align: center;
     letter-spacing: .1rem;
+    margin-bottom: 0;
   }
 
   form {
@@ -70,6 +71,29 @@ const Container = Styled.article`
       font-size: .9rem;
       padding: .2rem 0;
     }
+
+    
+  }
+  @media (min-width: 600px) {
+    form {
+      input, textarea {
+        padding: .35rem;
+      }
+  
+      label {
+        font-size: 1.1rem;
+      }
+    }
+  }
+
+  @media (min-width: 900px) {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-flow: column;
+    justify-content: center;
+
+    
   }
 `
 
