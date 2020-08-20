@@ -1,5 +1,5 @@
 import React from 'react'
-import Styled, { ThemeProvider } from 'styled-components'
+import Styled from 'styled-components'
 import AppHeader from './Components/AppHeader'
 import AppFooter from './Components/AppFooter'
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
