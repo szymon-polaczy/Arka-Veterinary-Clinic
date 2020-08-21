@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import HomePage from './Pages/HomePage'
 import OfferPage from './Pages/OfferPage'
 import ContactPage from './Pages/ContactPage'
+import Gallery from './Pages/Gallery'
 
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from '@apollo/react-hooks'
@@ -46,7 +47,7 @@ function App() {
 					<Main>
 						<Switch>
 							<Route path="/blog">{/* <Blog/> */}</Route>
-							<Route path="/galeria">{/* <Galeria/> */}</Route>
+							<Route path="/galeria"><Gallery/></Route>
 							<Route path="/kontakt"><ContactPage/></Route>
 							<Route path="/oferta"><OfferPage/></Route>
 							<Route path="/"><HomePage/></Route>
