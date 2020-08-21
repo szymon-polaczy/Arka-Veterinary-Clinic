@@ -8,12 +8,10 @@ const Header = Styled.header`
 
   img {
     max-height: 100%;
-    position: relative;
-    top: 11%;
+    position: absolute;
     left: 50%;
-    transform: translate(-50%);
+    transform: translateX(-50%);
     z-index: 10;
-
     top: 0;
   }
 
@@ -71,7 +69,7 @@ const Header = Styled.header`
 
   @media (min-width: 1200px) {
     img {
-      top: 10%;
+      top: 11%;
     }
 
     h2:first-child {

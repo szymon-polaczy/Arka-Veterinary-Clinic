@@ -24,7 +24,7 @@ const Gallery = () => {
   useEffect(() => {
     function setMacy() {
       Macy({
-        container: '.container',
+        container: '#macy-container',
         mobileFirst: true,
         columns: 6,
         breakAt: {
@@ -60,7 +60,7 @@ const Gallery = () => {
   return (
     <>
     <PaddingFromTop/>
-    <MacyContainer className="container">
+    <MacyContainer id="macy-container">
       {data === undefined ? 'Loading...' : data.galleries.map(photo => getOnePhoto(photo))}
     </MacyContainer>
     </>
