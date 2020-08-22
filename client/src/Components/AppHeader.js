@@ -56,28 +56,27 @@ const Header = Styled.header`
 const LogoSection = Styled.section`
 	display: flex;
 	align-items: center;
-	height: 100%; /* Without this the logo was overflowing the header*/
+	max-height: 100%;/* Without this the logo was overflowing the header*/
 
 	img {
-		max-height: 100%;
-		box-sizing: border-box;
-		padding: 1rem;
+		width: 3rem;
+		height: 3rem;
+		padding: .65rem;
 	}
 
 	h1 {
-		font-size: 1.5rem;
+		font-size: 1.3rem;
 		font-weight: 600;
 		margin-right: 1rem;
 	}
 
-	@media (max-width: 500px) {
+	@media (min-width: 500px) {
 		h1 {
-			font-size: 1.3rem;
+			font-size: 1.5rem;
 		}
-		
+
 		img {
-			max-height: 80%;
-			padding: .65rem;
+			padding: 1rem;
 		}
 	}
 `
