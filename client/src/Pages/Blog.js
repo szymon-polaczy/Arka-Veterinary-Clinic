@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/react-hooks'
 import gpl from 'graphql-tag'
-import React from 'react'
+import React, { useEffect } from 'react'
 import AboutOurBlog from './BlogPageComponents/AboutOurBlog'
 import Styled from 'styled-components'
 import IntroToBlogArticle from './BlogPageComponents/IntroToBlogArticle'
@@ -35,6 +35,10 @@ const Blog = () => {
   `
   
   const { data } = useQuery(query); 
+
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [])
 
   return (
     <>

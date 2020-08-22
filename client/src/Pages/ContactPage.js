@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Styled from 'styled-components'
 
 import GMap from '../Components/GMap'
@@ -32,6 +32,10 @@ const ContactContainer = Styled.section`
 `
 
 const ContactPage = () => {
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [])
+
   return (
     <ContactContainer>
       <ContactInfo/>

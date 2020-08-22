@@ -44,6 +44,10 @@ const Gallery = () => {
     window.addEventListener('resize', setMacy)
   })
 
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [])
+
   const query = gpl`
     query MyQuery {
       galleries {

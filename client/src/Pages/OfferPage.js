@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Styled from 'styled-components'
 
 const OfferSection = Styled.section`
@@ -93,6 +93,10 @@ const OfferSection = Styled.section`
 `
 
 const OfferPage = () => {
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [])
+
   return (
     <OfferSection>
       <article>
