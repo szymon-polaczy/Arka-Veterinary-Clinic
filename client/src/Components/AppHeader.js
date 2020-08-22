@@ -143,6 +143,7 @@ const Navigation = Styled.nav`
 
 const AppHeader = () => {
 	const [open, setOpen] = useState(false);
+	const handleToggleMenu = () => setOpen(state => !state)
 
 	return (
 			<Header>
@@ -151,16 +152,16 @@ const AppHeader = () => {
 						<img src="Images/logo.png" alt="Arka"/>
 						<h1><Link to="/">Przychodnia Weterynaryjna Arka</Link></h1>
 					</LogoSection>
-					<button aria-label="Menu Btn" onClick={() => setOpen(!open)}>
+					<button aria-label="Menu Btn" onClick={handleToggleMenu}>
 						<img src="Images/svg/menu-icon.svg" alt="Menu"/>
 					</button>
 					<Navigation open={open}>
 						<ul>
-							<li><Link to="/" onClick={() => setOpen(!open)}>Strona Główna</Link></li>
-							<li><Link to="/oferta" onClick={() => setOpen(!open)}>Oferta</Link></li>
-							<li><Link to="/galeria" onClick={() => setOpen(!open)}>Galeria</Link></li>
-							<li><Link to="/blog" onClick={() => setOpen(!open)}>Blog</Link></li>
-							<li><Link to="/kontakt">Kontakt</Link></li>
+							<li><Link to="/" onClick={handleToggleMenu}>Strona Główna</Link></li>
+							<li><Link to="/oferta" onClick={handleToggleMenu}>Oferta</Link></li>
+							<li><Link to="/galeria" onClick={handleToggleMenu}>Galeria</Link></li>
+							<li><Link to="/blog" onClick={handleToggleMenu}>Blog</Link></li>
+							<li><Link to="/kontakt" onClick={handleToggleMenu}>Kontakt</Link></li>
 						</ul>
 					</Navigation>
 				</div>
