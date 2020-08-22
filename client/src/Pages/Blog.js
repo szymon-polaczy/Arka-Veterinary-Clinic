@@ -1,26 +1,24 @@
 import { useQuery } from '@apollo/react-hooks'
 import gpl from 'graphql-tag'
 import React from 'react'
-/*(import Styled from 'styled-components'*/
+import AboutOurBlog from './BlogPageComponents/AboutOurBlog'
+import Styled from 'styled-components'
+import IntroToBlogArticle from './BlogPageComponents/IntroToBlogArticle'
 
-const getOneArticle = ({title, category, creationDate, lastUpdateDate, creator, intro}) => {
-  return (
-    <article>
-      <h3>{title} <span>{creator}</span></h3>
-      <p>{intro}</p>
-      <section>
-        <article>
-          Kategoria
-          {category.map(cat => (<span style={{background: '#2b2b2b', border: '1px solid #5498f0', margin: '.3rem', padding: '.2rem'}}>{cat}</span>))}
-          </article>
-        <article>
-          <p>Utworzone {creationDate}</p>
-          <p>Ostatni Update {lastUpdateDate}</p>
-        </article>
-      </section>
-    </article>
-  )
-}
+const ArticleIntrosContainer = Styled.section`
+  h2 {
+    padding-left: 1rem;
+    margin-top: 5rem;
+    letter-spacing: .2rem;
+    font-size: 2.5rem;
+    font-family: 'Barrio', cursive;
+  }
+
+  .article-intro:nth-child(even) {
+    background: #fff;
+    color: #1b1b1b;
+  }
+`
 
 const Blog = () => {
   const query = gpl`
@@ -40,17 +38,12 @@ const Blog = () => {
 
   return (
     <>
-      <section>
-        <h2>Oto nasz blog</h2>
-        <p>Postanowiliśmy stworzyć bloga w celu pomocy właścicielom z ich 
-          zwierzakami. Wszystko co tu znajdziesz jest napisane przez 
-          profesjonalistów i powstało aby jak najbardziej pomóc 
-          zwierzakowi i Tobie poczuć że tworszycie jedną rodzinę</p>
-      </section>
-      <section>
+      <AboutOurBlog/>
+      <ArticleIntrosContainer>
         <h2>Artykuły jakie napisaliśmy</h2>
-        {data === undefined ? 'Loading...' : data.blogPosts.map(article => getOneArticle(article))}
-      </section>
+        {data === undefined ? 'Loading...' : 
+          data.blogPosts.map(article => <IntroToBlogArticle article={article}/>)}
+      </ArticleIntrosContainer>
     </>
   )
 }
