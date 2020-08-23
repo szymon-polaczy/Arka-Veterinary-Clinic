@@ -9,6 +9,7 @@ import OfferPage from './Pages/OfferPage'
 import ContactPage from './Pages/ContactPage'
 import Gallery from './Pages/Gallery'
 import Blog from './Pages/Blog'
+import BlogArticle from './Pages/BlogArticle'
 
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from '@apollo/react-hooks'
@@ -34,6 +35,10 @@ const Main = Styled.main`
 	border-bottom: 10px solid #548493;
 `;
 
+const renderBlogArticle = (routerProps) => {
+	return <BlogArticle id={routerProps.match.params.id}/>
+}
+
 function App() {
 	const client = new ApolloClient({
 		uri: 'https://api-eu-central-1.graphcms.com/v2/ckdyr4fjy1qq601w8hyhw0msj/master'
@@ -47,6 +52,7 @@ function App() {
 
 					<Main>
 						<Switch>
+							<Route path='/blog/:id' render={routerProps => renderBlogArticle(routerProps)}/>
 							<Route path="/blog"><Blog/></Route>
 							<Route path="/galeria"><Gallery/></Route>
 							<Route path="/kontakt"><ContactPage/></Route>

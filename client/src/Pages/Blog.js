@@ -29,6 +29,7 @@ const Blog = () => {
   const query = gpl`
     query BlogPosts  {
       blogPosts {
+        id
         title
         category
         creationDate

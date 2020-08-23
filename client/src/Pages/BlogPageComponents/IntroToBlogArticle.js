@@ -1,5 +1,6 @@
 import React from 'react'
 import Styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
 const ArticleIntro = Styled.article`
   padding: 2rem;
@@ -81,21 +82,23 @@ const Container = Styled.section`
 `
 
 const IntroToBlogArticle = ({article}) => {
-  const {title, creator, intro, category, creationDate, lastUpdateDate} = article;
+  const {id, title, creator, intro, category, creationDate, lastUpdateDate} = article;
   return (
-    <ArticleIntro className="article-intro">
-      <Title>{title} <span>{creator}</span></Title>
-      <Intro>{intro}</Intro>
-      <Container>
-        <CategoryContainer>
-          Kategoria {category.map(cat => (<CategoryBlock>{cat}</CategoryBlock>))}
-        </CategoryContainer>
-        <InfoContainer>
-          <p>Utworzone {creationDate}</p>
-          <p>Ostatni Update {lastUpdateDate}</p>
-        </InfoContainer>
-      </Container>
-    </ArticleIntro>
+    <Link to={`/blog/${id}`}>
+      <ArticleIntro className="article-intro">
+        <Title>{title} <span>{creator}</span></Title>
+        <Intro>{intro}</Intro>
+        <Container>
+          <CategoryContainer>
+            Kategoria {category.map(cat => (<CategoryBlock>{cat}</CategoryBlock>))}
+          </CategoryContainer>
+          <InfoContainer>
+            <p>Utworzone {creationDate}</p>
+            <p>Ostatni Update {lastUpdateDate}</p>
+          </InfoContainer>
+        </Container>
+      </ArticleIntro>
+    </Link>
   )
 }
 
