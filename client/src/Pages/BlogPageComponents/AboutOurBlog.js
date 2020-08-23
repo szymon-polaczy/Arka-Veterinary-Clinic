@@ -2,7 +2,7 @@ import React from 'react'
 import Styled from 'styled-components'
 
 const Container = Styled.section`
-  padding: 1rem;
+  padding: 2rem 1rem 1rem 1rem;
   text-align: center;
 
   h2,p {
@@ -20,6 +20,8 @@ const Container = Styled.section`
   p {
     line-height: 130%;
     font-size: 1.2rem;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 `
 

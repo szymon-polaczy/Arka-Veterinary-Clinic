@@ -6,6 +6,10 @@ import Styled from 'styled-components'
 import IntroToBlogArticle from './BlogPageComponents/IntroToBlogArticle'
 
 const ArticleIntrosContainer = Styled.section`
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+
   h2 {
     padding-left: 1rem;
     margin-top: 5rem;
@@ -14,9 +18,10 @@ const ArticleIntrosContainer = Styled.section`
     font-family: 'Barrio', cursive;
   }
 
-  .article-intro:nth-child(even) {
-    background: #fff;
-    color: #1b1b1b;
+  .article-intro {
+    margin-bottom: 3rem;
+    background: #2b2b2b;
+    color: #fff;
   }
 `
 
@@ -44,7 +49,7 @@ const Blog = () => {
     <>
       <AboutOurBlog/>
       <ArticleIntrosContainer>
-        <h2>Artykuły jakie napisaliśmy</h2>
+        <h2>Oto nasze dzieła</h2>
         {data === undefined ? 'Loading...' : 
           data.blogPosts.map(article => <IntroToBlogArticle article={article}/>)}
       </ArticleIntrosContainer>

@@ -2,12 +2,27 @@ import React from 'react'
 import Styled from 'styled-components'
 
 const ArticleIntro = Styled.article`
-  padding: 1rem;
+  padding: 2rem;
+
+  @media (min-width: 1050px) {
+    border-radius: .65rem;
+  }
 `
 
 const Title = Styled.h3`
   margin: 0;
   padding: 0;
+  font-size: 2rem;
+  padding-bottom: 1rem;
+
+  &::after {
+    display: block;
+    content: '';
+    width: 15rem;
+    background: #548493;
+    height: 2px;
+    margin-top: .4rem;
+  }
 
   span {
     color: #999;
@@ -53,8 +68,16 @@ const InfoContainer = Styled.article`
 
 const Intro = Styled.p`
   padding: 0;
-  margin: .45rem 0;
-  line-height: 135%;
+  margin: .45rem 0 1rem 0;
+  line-height: 150%;
+  letter-spacing: .05rem;
+`
+
+const Container = Styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-flow: wrap;
 `
 
 const IntroToBlogArticle = ({article}) => {
@@ -63,7 +86,7 @@ const IntroToBlogArticle = ({article}) => {
     <ArticleIntro className="article-intro">
       <Title>{title} <span>{creator}</span></Title>
       <Intro>{intro}</Intro>
-      <section>
+      <Container>
         <CategoryContainer>
           Kategoria {category.map(cat => (<CategoryBlock>{cat}</CategoryBlock>))}
         </CategoryContainer>
@@ -71,7 +94,7 @@ const IntroToBlogArticle = ({article}) => {
           <p>Utworzone {creationDate}</p>
           <p>Ostatni Update {lastUpdateDate}</p>
         </InfoContainer>
-      </section>
+      </Container>
     </ArticleIntro>
   )
 }
