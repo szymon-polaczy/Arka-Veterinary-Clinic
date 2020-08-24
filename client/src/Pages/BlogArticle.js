@@ -24,13 +24,17 @@ const Title = Styled.h2`
   font-family: 'Barrio', cursive;
   margin: 2.5rem;
   margin-left: 0;
+  padding: 0 1rem;
 
   span {
     font-size: 1rem;
+    display: inline-block;
   }
 `
 
 const Post = Styled.article`
+  padding: 1rem;
+
   p {
     font-size: 1.1rem;
     line-height: 145%;
@@ -43,6 +47,9 @@ const BottomInfoWrapper = Styled.section`
   justify-content: space-between;
   flex-flow: wrap;
   margin-top: 3rem;
+
+  
+  padding: 0 1rem; /*THIS IS NEW*/
 `
 
 const CategoryContainer = Styled.article`
