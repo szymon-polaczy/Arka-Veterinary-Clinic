@@ -2,16 +2,18 @@
 
 module.exports = function override(config, env) {
   if (!config.devServer)
-    config.devServer = {}
+  config.devServer = {
+    historyApiFallback: true,
+  }
 
   if (!config.output.publicPath)
     config.output.assign({publicPath: '/'})
 
-  if (process.env.NODE_ENV === 'production') {
+  /*if (process.env.NODE_ENV === 'production') {
     config.devServer = {
-      historyApiDallback: true,
+      historyApiFallback: true,
     }
-  }
+  }*/
 
   return config;
 }
