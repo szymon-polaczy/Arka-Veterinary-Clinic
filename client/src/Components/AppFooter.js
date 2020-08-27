@@ -164,6 +164,7 @@ const BottomFooter = Styled.footer`
  
 const Img = Styled.img`
   display: none;
+  max-width: calc(2000px + 2rem);
 
   @media (min-width: 1800px) {
     display: block;
