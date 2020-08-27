@@ -16,7 +16,7 @@ const PaddingFromTop = Styled.div`
 
 const getOnePhoto = ({image, alt, title}) => {
   return (
-    <img src={image.url} alt={alt} title={title}/>
+    <img src={image.url} alt={alt} title={title} key={image.url}/>
   )
 }
 

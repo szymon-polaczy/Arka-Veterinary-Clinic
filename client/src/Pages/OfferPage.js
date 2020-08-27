@@ -35,7 +35,8 @@ const OfferPage = () => {
 
   return (
     <Container>
-      {data === undefined ? 'Loading' : data.offers.map(offer => <Offer offer={offer}/>) }
+      {data === undefined ? 'Loading' : data.offers.map(offer => 
+        <Offer offer={offer} key={offer.title}/>) }
     </Container>
   )
 }

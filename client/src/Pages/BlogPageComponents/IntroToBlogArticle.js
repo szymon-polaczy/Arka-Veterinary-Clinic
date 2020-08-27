@@ -90,7 +90,7 @@ const IntroToBlogArticle = ({article}) => {
         <Intro>{intro}</Intro>
         <Container>
           <CategoryContainer>
-            Kategoria {category.map(cat => (<CategoryBlock>{cat}</CategoryBlock>))}
+            Kategoria {category.map(cat => (<CategoryBlock key={`${id} ${cat}`}>{cat}</CategoryBlock>))}
           </CategoryContainer>
           <InfoContainer>
             <p>Utworzone {creationDate}</p>

@@ -95,9 +95,9 @@ const People = Styled.section`
   }
 `;
 
-const getOneWorker = ({photo, fullName, education, description}) => {
+const getOneWorker = ({id, photo, fullName, education, description}) => {
   return (
-    <article>
+    <article key={id}>
       <img src={photo.url} alt={fullName} title={fullName}/>
       <section>
         <h3>{fullName}</h3>
@@ -112,6 +112,7 @@ const PeopleSection = () => {
   const query = gpl`
     query MyQuery {
       workers {
+        id
         photo {
           url
         }

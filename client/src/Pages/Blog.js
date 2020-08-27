@@ -52,7 +52,8 @@ const Blog = () => {
       <ArticleIntrosContainer>
         <h2>Oto nasze dzieła</h2>
         {data === undefined ? 'Loading...' : 
-          data.blogPosts.map(article => <IntroToBlogArticle article={article}/>)}
+          data.blogPosts.map(article => 
+            <IntroToBlogArticle article={article} key={article.id}/>)}
       </ArticleIntrosContainer>
     </>
   )

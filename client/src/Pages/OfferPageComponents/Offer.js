@@ -38,12 +38,13 @@ const Offer = ({ offer }) => {
   const [open, setOpen ] = useState(false)
 
   return (
-    <AStyledOffer>
+    <AStyledOffer key={title}>
       <Img style={{width: "100%"}} src={image.url} alt={title}
         onClick={() => setOpen(state => !state)}/>
       <Title onClick={() => setOpen(state => !state)}>{title}</Title>
       <HidingSection open={open}>
-        { fullOffer.offers.map(offer => <OfferSection offer={offer}/>) }
+        { fullOffer.offers.map((offer, index) => 
+          <OfferSection offer={offer} key={offer.title}/>) }
       </HidingSection>
     </AStyledOffer>
   );
