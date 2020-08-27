@@ -3,6 +3,7 @@ import Styled from 'styled-components'
 import AppHeader from './Components/AppHeader'
 import AppFooter from './Components/AppFooter'
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import { createBrowserHistory } from 'history'
 
 import HomePage from './Pages/HomePage'
 import OfferPage from './Pages/OfferPage'
@@ -39,6 +40,8 @@ const renderBlogArticle = (routerProps) => {
 	return <BlogArticle id={routerProps.match.params.id}/>
 }
 
+const history = createBrowserHistory();
+
 function App() {
 	const client = new ApolloClient({
 		uri: 'https://api-eu-central-1.graphcms.com/v2/ckdyr4fjy1qq601w8hyhw0msj/master'
@@ -47,7 +50,7 @@ function App() {
 	return (
 		<ApolloProvider client={client}>
 			<ApplicationWrapper>
-				<Router>
+				<Router history={history}>
 					<AppHeader/>
 
 					<Main>
