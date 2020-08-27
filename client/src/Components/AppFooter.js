@@ -158,12 +158,28 @@ const BottomFooter = Styled.footer`
     position: fixed;
     bottom: 0;
     width: 100%;
+    box-sizing: border-box;
   }
 `
  
+const Img = Styled.img`
+  display: none;
+
+  @media (min-width: 1800px) {
+    display: block;
+    height: 400px;
+    width: calc(100vw - 6rem);
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 28rem;
+    object-fit: cover;
+  }
+`
+
 const MagicFooter = Styled.div`
   @media (min-width: 1800px) {
-    height: 31rem;
+    height: calc(31rem + 400px);
   }
 `
 
@@ -203,6 +219,7 @@ const AppFooter = () => {
   return (
     <>
       <MagicFooter></MagicFooter>
+      <Img src="Images/footer.jpg" alt="Kotek do góry nogami"/>
       <Footer>
         <div className="info-section">
           <article>

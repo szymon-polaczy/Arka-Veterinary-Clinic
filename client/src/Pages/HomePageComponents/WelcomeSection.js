@@ -91,7 +91,7 @@ const WelcomeSection = () => {
   return (
     <Header>
       <h2>Daj głos swojemu</h2>
-      <img src="Images/cat-welcome.png" alt="Kotek na powitanie"/>
+      <img src="Images/welcome.png" alt="Kotek na powitanie"/>
       <h2>Kompanowi</h2>
     </Header>
   )
