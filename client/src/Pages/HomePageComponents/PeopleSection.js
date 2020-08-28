@@ -17,7 +17,7 @@ const People = Styled.section`
 			content: '';
 			width: 10rem;
 			height: 2px;
-			background: #548493;
+			background: ${props => props.theme.akcent};
 			transition: .15s transform ease-out;
       margin: .65rem auto 0 auto;
     }
@@ -38,7 +38,7 @@ const People = Styled.section`
       padding: 0;
       font-size: 1.3rem;
       letter-spacing: .1rem;
-      font-family: 'Barrio', cursive;
+      font-family: ${props => props.theme.secondaryFontFamily};
     }
 
     h3 {

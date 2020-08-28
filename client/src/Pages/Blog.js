@@ -15,13 +15,13 @@ const ArticleIntrosContainer = Styled.section`
     margin-top: 5rem;
     letter-spacing: .2rem;
     font-size: 2.5rem;
-    font-family: 'Barrio', cursive;
+    font-family: ${props => props.theme.secondaryFontFamily};
   }
 
   .article-intro {
     margin-bottom: 3rem;
-    background: #2b2b2b;
-    color: #fff;
+    background: ${props => props.theme.gray};
+    color: ${props => props.theme.light};
   }
 `
 

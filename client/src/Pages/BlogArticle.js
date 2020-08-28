@@ -15,13 +15,13 @@ const Img = Styled.img`
   height: 400px;
   object-fit: cover;
   display: block;
-  border-bottom: 5px solid #548493;
+  border-bottom: 5px solid ${props => props.theme.akcent};
 `
 
 const Title = Styled.h2`
   font-size: 3rem;
   letter-spacing: .1rem;
-  font-family: 'Barrio', cursive;
+  font-family: ${props => props.theme.secondaryFontFamily};
   margin: 2.5rem;
   margin-left: 0;
   padding: 0 1rem;
@@ -60,7 +60,7 @@ const CategoryContainer = Styled.article`
 `
 
 const CategoryBlock = Styled.div`
-  border: 2px solid #548493;
+  border: 2px solid ${props => props.theme.akcent};
   margin: .3rem;
   padding: .35rem;
   width: fit-content;

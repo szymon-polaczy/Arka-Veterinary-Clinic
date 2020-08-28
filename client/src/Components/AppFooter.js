@@ -9,8 +9,8 @@ import GMap from './GMap'
 
 const Footer = Styled.footer`
   margin: 0 auto 2rem auto;
-  background: #1b1b1b;
-  color: #fff;
+  background: ${props => props.theme.dark};
+  color: ${props => props.theme.light};
   padding: 1rem;
   max-width: 2000px;
 
@@ -31,7 +31,7 @@ const Footer = Styled.footer`
 
       h3 {
         letter-spacing: .1rem;
-			  font-family: 'Barrio', cursive;
+			  font-family: ${props => props.theme.secondaryFontFamily};
       }
 
       &:first-child {

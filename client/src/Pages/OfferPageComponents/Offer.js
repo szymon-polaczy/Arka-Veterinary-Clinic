@@ -7,7 +7,7 @@ const HidingSection = Styled.section`
 `
 
 const AStyledOffer = Styled.article`
-  background: #2b2b2b;
+  background: ${props => props.theme.gray};
   max-width: 800px;
   margin: 2.5rem;
 
@@ -28,7 +28,7 @@ const Img = Styled.img`
 const Title = Styled.h2`
   font-size: 2rem;
   letter-spacing: .1rem;
-  font-family: 'Barrio', cursive;
+  font-family: ${props => props.theme.secondaryFontFamily};
   padding: .65rem 1.4rem;
   margin: 0;
 `

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 const AboutUs = Styled.section`
   padding: 3rem 1rem;
-  background: #548493;
+  background: ${props => props.theme.akcent};
   max-width: 2000px;
   margin: 0 auto;
 
@@ -14,7 +14,7 @@ const AboutUs = Styled.section`
     display: block;
     font-size: 1.5rem;
     letter-spacing: .1rem;
-    font-family: 'Barrio', cursive;
+    font-family: ${props => props.theme.secondaryFontFamily};
     text-align: center;
     margin: 0 auto .5rem auto;
 

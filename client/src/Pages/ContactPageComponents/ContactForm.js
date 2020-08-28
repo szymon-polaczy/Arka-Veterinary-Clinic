@@ -7,7 +7,7 @@ import { formValidation } from './FormValidation'
 const Container = Styled.article`
   h2 {
     padding: 1.5rem 1rem 0 1rem;
-    font-family: 'Barrio', cursive;
+    font-family: ${props => props.theme.secondaryFontFamily};
     text-align: center;
     letter-spacing: .1rem;
     margin-bottom: 0;
@@ -26,13 +26,13 @@ const Container = Styled.article`
       outline: none;
       border: none;
       background: transparent;
-      color: #fff;
+      color: ${props => props.theme.light};
     }
 
     input, textarea {
       width: 280px;
-      background: #2b2b2b;
-      border-bottom: 2px solid #548493;
+      background: ${props => props.theme.gray};
+      border-bottom: 2px solid ${props => props.theme.akcent};
     }
 
     label {
@@ -46,19 +46,19 @@ const Container = Styled.article`
     }
 
     button {
-      border-top: 2px solid #548493;
-      border-bottom: 2px solid #548493;
+      border-top: 2px solid ${props => props.theme.akcent};
+      border-bottom: 2px solid ${props => props.theme.akcent};
       width: 15rem;
       padding: .65rem 0;
       font-size: 1.65rem;
-      font-family: 'Barrio', cursive;
+      font-family: ${props => props.theme.secondaryFontFamily};
       letter-spacing: .1rem;
       margin-bottom: 1.5rem;
       margin-top: 1.5rem;
       transition: .1s transform ease-out;
 
       &:hover, &:focus {
-        background: #2b2b2b;
+        background: ${props => props.theme.gray};
       }
 
       &:active {

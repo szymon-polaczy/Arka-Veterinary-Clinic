@@ -13,8 +13,8 @@ const Button = Styled.button`
   outline: none;
   background: transparent;
   color: inherit;
-  border-top: 2px solid #548493;
-  border-bottom: 2px solid #548493;
+  border-top: 2px solid ${props => props.theme.akcent};
+  border-bottom: 2px solid ${props => props.theme.akcent};
   font-size: 1.45rem;
   width: 100%;
   text-align: left;

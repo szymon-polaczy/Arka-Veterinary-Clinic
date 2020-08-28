@@ -6,7 +6,7 @@ const Header = Styled.header`
 	position: sticky;
 	top: 0;
 	z-index: 100;
-	background: #1b1b1b;
+	background: ${props => props.theme.dark};
 	color: #efefef;
 
 	.wrapper {
@@ -104,7 +104,7 @@ const Navigation = Styled.nav`
 				width: 5rem;
 				height: 2px;
 				margin-top: .3rem;
-				background: #548493;
+				background: ${props => props.theme.akcent};
 				transform: scaleX(0);
 				transition: .15s transform ease-in-out;
 			}
@@ -129,9 +129,9 @@ const Navigation = Styled.nav`
 		top: 5rem;
 		width: 100vw;
 		z-index: -1;
-		background: #1b1b1b;
+		background: ${props => props.theme.dark};
 		transition: .3s all ease-in-out;
-		border-bottom: 5px solid #548493;
+		border-bottom: 5px solid ${props => props.theme.akcent};
 		padding: 1rem 0;
 
 		ul {

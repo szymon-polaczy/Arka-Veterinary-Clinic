@@ -23,7 +23,7 @@ const Container = Styled.article`
     padding: .9rem 1rem;
 
     h2 {
-      font-family: 'Barrio', cursive;
+      font-family: ${props => props.theme.secondaryFontFamily};
       letter-spacing: .1rem;
       padding-bottom: .3rem;
     }

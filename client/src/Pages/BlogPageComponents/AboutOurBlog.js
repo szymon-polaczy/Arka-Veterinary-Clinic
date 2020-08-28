@@ -13,7 +13,7 @@ const Container = Styled.section`
   h2 {
     font-size: 2.2rem;
     letter-spacing: .1rem;
-    font-family: 'Barrio', cursive;
+    font-family: ${props => props.theme.secondaryFontFamily};
     margin-bottom: .35rem;
   }
 

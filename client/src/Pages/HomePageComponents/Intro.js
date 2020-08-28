@@ -19,12 +19,12 @@ const Section = Styled.section`
 
       h2 {
         letter-spacing: .1rem;
-			  font-family: 'Barrio', cursive;
+			  font-family: ${props => props.theme.secondaryFontFamily};
       }
     
       &:nth-child(2) {
-        background: #fff;
-        color: #1b1b1b;
+        background: ${props => props.theme.light};
+        color: ${props => props.theme.dark};
       }
 
       &:hover {
@@ -39,7 +39,7 @@ const Section = Styled.section`
 			content: '';
 			width: 10rem;
 			height: 2px;
-			background: #548493;
+			background: ${props => props.theme.akcent};
 			transform: scaleX(0);
 			transition: .15s transform ease-out;
       margin: .35rem auto 0 auto;
@@ -88,7 +88,7 @@ const Intro = () => {
           <article>
             <img src="Images/svg/child-solid.svg" alt="Człowiek"/>
             <h2>Nasza Oferta</h2>
-            <p>Co możesz dla niego zrobić?</p>
+            <p>Co możemy dla niego zrobić?</p>
           </article>
         </Link>
         <Link to="/galeria">

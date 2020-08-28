@@ -20,7 +20,7 @@ const Title = Styled.h3`
     display: block;
     content: '';
     width: 15rem;
-    background: #548493;
+    background: ${props => props.theme.akcent};
     height: 2px;
     margin-top: .4rem;
   }
@@ -44,7 +44,7 @@ const CategoryContainer = Styled.article`
 `
 
 const CategoryBlock = Styled.div`
-  border: 2px solid #548493;
+  border: 2px solid ${props => props.theme.akcent};
   margin: .3rem;
   padding: .35rem;
   width: fit-content;

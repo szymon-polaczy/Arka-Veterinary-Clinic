@@ -11,7 +11,7 @@ const Container = Styled.article`
 
   h2 {
     padding: 1.5rem 1rem;
-    font-family: 'Barrio', cursive;
+    font-family: ${props => props.theme.secondaryFontFamily};
     letter-spacing: .1rem;
     font-size: 1.75rem;
   }
@@ -29,8 +29,8 @@ const Container = Styled.article`
   }
 
   @media (min-width: 900px) {
-    background: #fff;
-    color: #1b1b1b;
+    background: ${props => props.theme.light};
+    color: ${props => props.theme.dark};
 
     p {
       padding: 1.5rem;

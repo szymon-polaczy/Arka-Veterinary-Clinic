@@ -2,7 +2,7 @@ import React from 'react'
 import Styled from 'styled-components'
 
 const Header = Styled.header`
-  font-family: 'Barrio', cursive;
+  font-family: ${props => props.theme.secondaryFontFamily};
   height: calc(100vh - 5rem);
   position: relative;
 
