@@ -3,16 +3,18 @@ import gpl from 'graphql-tag'
 import React from 'react'
 import renderHTML from 'react-render-html'
 import Styled from 'styled-components'
-import { Link } from 'react-router-dom'
 
 import GMap from './GMap'
+import BottomSection from './AppFooterComponents/BottomSection'
+import DesktopImage from './AppFooterComponents/DesktopImage'
 
-const Footer = Styled.footer`
+const TopSection = Styled.section`
   margin: 0 auto 2rem auto;
   background: ${props => props.theme.dark};
   color: ${props => props.theme.light};
   padding: 1rem;
   max-width: 2000px;
+  box-sizing: border-box;
 
   .info-section {
     .small-imp {
@@ -109,86 +111,11 @@ const Footer = Styled.footer`
   }
 `
 
-const BottomFooter = Styled.footer`
-  text-align: center;
-
-  .wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-flow: column-reverse;
-
-    p {
-      line-height: 140%;
-    }
-  }
-
-  section {
-    margin-bottom: .2rem;
-    display: flex;
-    flex-flow: column;
-
-    a {
-      padding: .35rem;
-    }
-  }
-
-  @media (min-width: 900px) {
-    height: 3rem;
-
-    .wrapper {
-      flex-flow: row;
-      align-items: center;
-      justify-content: space-around;
-    }
-
-    section {
-      flex-flow: row;
-      align-items: center;
-
-      padding-left: 2rem;
-
-      a:first-child {
-        padding-right: .65rem;
-      }
-    }
-  }
-
+const TransparentOverlay = Styled.div`
   @media (min-width: 1800px) {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    box-sizing: border-box;
+    height: calc(28rem + 400px);
   }
 `
- 
-const Img = Styled.img`
-  display: none;
-  max-width: calc(2000px + 2rem);
-
-  @media (min-width: 1800px) {
-    display: block;
-    height: 400px;
-    width: calc(100vw - 6rem);
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 28rem;
-    object-fit: cover;
-  }
-`
-
-const MagicFooter = Styled.div`
-  @media (min-width: 1800px) {
-    height: calc(31rem + 400px);
-  }
-`
-
-const partnerLogo = ({logo, alt, title, id}) => {
-  return (
-    <img src={logo.url} alt={alt} title={title} key={id}/>
-  )
-}
 
 const AppFooter = () => {
   const query = gpl`
@@ -218,10 +145,10 @@ const AppFooter = () => {
   const { loading, error, data } = useQuery(query);
 
   return (
-    <>
-      <MagicFooter></MagicFooter>
-      <Img src="Images/footer.jpg" alt="Kotek do góry nogami"/>
-      <Footer>
+    <footer>
+      <TransparentOverlay/>
+      <DesktopImage/>
+      <TopSection>
         <div className="info-section">
           <article>
             <h3>Kontakt</h3>
@@ -248,22 +175,13 @@ const AppFooter = () => {
         <div className="partners-section">
           {loading ? 'Ładowanie...' : 
             error !== undefined ? 'Coś poszło nie tak' :
-            data.ourPartnersImgs.map((partner) => partnerLogo(partner))}
+            data.ourPartnersImgs.map(({logo:{url}, alt, title, id}) => 
+              <img src={url} alt={alt} title={title} key={id}/>)
+          }
         </div>
-      </Footer>
-      <BottomFooter>
-        <div className="wrapper">
-          <p>Copyright &copy; Przychodnia Weterynaryjna Arka</p>
-          <section>
-            <Link to="/polityka-prywatności">Polityka Prywatności</Link>
-            <a href="https://github.com/szymon-polaczy" target="_blank"  
-              title="Skontaktuj się ze mną" rel="noopener noreferrer">
-              Made by Szymon Polaczy
-            </a>
-          </section>
-        </div>
-      </BottomFooter>
-    </>
+      </TopSection>
+      <BottomSection/>
+    </footer>
   )
 }
 
