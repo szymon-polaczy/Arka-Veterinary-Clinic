@@ -92,8 +92,6 @@ const Container = Styled.article`
     align-items: center;
     flex-flow: column;
     justify-content: center;
-
-    
   }
 `
 

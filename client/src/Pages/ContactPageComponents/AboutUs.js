@@ -4,6 +4,8 @@ import React from 'react'
 import Styled from 'styled-components'
 
 const Container = Styled.article` 
+  padding: 0 1rem;
+
   h2, p {
     margin: 0;
     text-align: center;
@@ -17,29 +19,19 @@ const Container = Styled.article`
   }
 
   p {
-    padding: 0 1rem .75rem 1rem;
-    line-height: 135%;
+    line-height: 150%;
     font-size: 1.2rem;
-  }
-
-  @media (min-width: 600px) {
-    p {
-      font-size: 1rem;
-    }
+    letter-spacing: 0.01rem;
   }
 
   @media (min-width: 900px) {
     background: ${props => props.theme.light};
     color: ${props => props.theme.dark};
-
-    p {
-      padding: 1.5rem;
-    }
   }
 
   @media (min-width: 1200px) {
-    p {
-      font-size: 1.2rem;
+    h2 {
+      padding-top: 0;
     }
   }
 `

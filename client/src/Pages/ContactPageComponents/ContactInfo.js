@@ -46,14 +46,17 @@ const Container = Styled.article`
   @media (min-width: 600px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+
+    section:nth-child(3),
+    section:nth-child(4) {
+      padding-top: 2rem;
+    }
   }
 
   @media (min-width: 900px) {
-    padding: 3.5rem 1rem;
     gap: 20px;
     
     section:not(.very-imp), .very-imp {
-      padding: 0;
       margin: 0;
       text-align: left;
       width: 100%;

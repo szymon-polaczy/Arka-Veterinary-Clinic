@@ -29,6 +29,12 @@ const ContactContainer = Styled.section`
       grid-row: 2 / span 1;
     }
   }
+
+  @media (min-width: 1200px) {
+    article {
+      padding: 4rem 2rem;
+    }
+  }
 `
 
 const ContactPage = () => {
