@@ -84,7 +84,7 @@ const Container = Styled.section`
 const IntroToBlogArticle = ({article}) => {
   const {id, title, creator, intro, category, creationDate, lastUpdateDate} = article;
   return (
-    <Link to={`/blog/${id}`}>
+    <Link to={`/blog-${id}`}>
       <ArticleIntro className="article-intro">
         <Title>{title} <span>{creator}</span></Title>
         <Intro>{intro}</Intro>

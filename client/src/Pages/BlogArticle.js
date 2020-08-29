@@ -92,7 +92,7 @@ const Article = ({title, lastUpdateDate, creationDate, creator, category, articl
       
       <BottomInfoWrapper>
         <CategoryContainer>
-          Kategoria {category.map(cat => (<CategoryBlock>{cat}</CategoryBlock>))}
+          Kategoria {category.map(cat => (<CategoryBlock key={`${title} - ${cat}`}>{cat}</CategoryBlock>))}
         </CategoryContainer>
         <InfoContainer>
           <p>Utworzone {creationDate}</p>
