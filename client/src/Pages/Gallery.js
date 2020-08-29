@@ -59,13 +59,15 @@ const Gallery = () => {
       }
     }
   `
-  const { data } = useQuery(query); 
+  const { loading, error, data } = useQuery(query); 
 
   return (
     <>
     <PaddingFromTop/>
     <MacyContainer id="macy-container">
-      {data === undefined ? 'Loading...' : data.galleries.map(photo => getOnePhoto(photo))}
+      {loading ? 'Ładowanie...' : 
+        error !== undefined ? 'Coś poszło nie tak!' :
+        data.galleries.map(photo => getOnePhoto(photo))}
     </MacyContainer>
     </>
   )

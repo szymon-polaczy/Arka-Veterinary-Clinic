@@ -40,7 +40,7 @@ const Blog = () => {
     }
   `
   
-  const { data } = useQuery(query); 
+  const { loading, error, data } = useQuery(query); 
 
   useEffect(() => {
     window.scrollTo(0,0)
@@ -51,7 +51,8 @@ const Blog = () => {
       <AboutOurBlog/>
       <ArticleIntrosContainer>
         <h2>Oto nasze dzieła</h2>
-        {data === undefined ? 'Loading...' : 
+        {loading ? 'Ładowanie...' : 
+          error !== undefined ? 'Coś poszło nie tak!' :
           data.blogPosts.map(article => 
             <IntroToBlogArticle article={article} key={article.id}/>)}
       </ArticleIntrosContainer>

@@ -59,13 +59,15 @@ const AboutUsSection = () => {
     }
   `
   
-  const { data } = useQuery(query); 
+  const { loading, error, data } = useQuery(query); 
 
   return (
     <AboutUs>
       <div className="wrapper">
         <Link to="/kontakt">Poznaj nas bliżej</Link>
-        <p>{data === undefined ? 'Loading...' : data.aboutUses[0].short}</p>
+        <p>{loading ? 'Ładowanie...' : 
+            error !== undefined ? 'Coś poszło nie tak!' :
+            data.aboutUses[0].short}</p>
       </div>
     </AboutUs>
   )

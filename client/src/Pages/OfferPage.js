@@ -27,7 +27,7 @@ const OfferPage = () => {
     }  
   `
   
-  const { data } = useQuery(query)
+  const { loading, error, data } = useQuery(query)
 
   useEffect(() => {
     window.scrollTo(0,0)
@@ -35,8 +35,10 @@ const OfferPage = () => {
 
   return (
     <Container>
-      {data === undefined ? 'Loading' : data.offers.map(offer => 
-        <Offer offer={offer} key={offer.title}/>) }
+      {loading ? 'Ładowanie...' : 
+        error !== undefined ? 'Coś poszło nie tak!' :
+        data.offers.map(offer => 
+          <Offer offer={offer} key={offer.title}/>) }
     </Container>
   )
 }

@@ -215,7 +215,7 @@ const AppFooter = () => {
     }
   `
   
-  const { data } = useQuery(query);
+  const { loading, error, data } = useQuery(query);
 
   return (
     <>
@@ -225,22 +225,30 @@ const AppFooter = () => {
         <div className="info-section">
           <article>
             <h3>Kontakt</h3>
-            {data === undefined ? 'Loading...' : renderHTML(data.contactInfos[0].contact.html)}
+            {loading ? 'Ładowanie...' : 
+              error !== undefined ? 'Coś poszło nie tak' :
+              renderHTML(data.contactInfos[0].contact.html)}
           </article>
           <article>
             <h3>Godziny Otwarcia</h3>
-            {data === undefined ? 'Loading...' : renderHTML(data.contactInfos[0].openHours.html)}
+            {loading ? 'Ładowanie...' : 
+              error !== undefined ? 'Coś poszło nie tak' :
+              renderHTML(data.contactInfos[0].openHours.html)}
           </article>
           <article>
             <h3>Adres</h3>
-            {data === undefined ? 'Loading...' : renderHTML(data.contactInfos[0].address.html)}
+            {loading ? 'Ładowanie...' : 
+              error !== undefined ? 'Coś poszło nie tak' :
+              renderHTML(data.contactInfos[0].address.html)}
           </article>
           <article className="map">
             <GMap title="Nasze-Położenie-Stopka"/>
           </article>
         </div>
         <div className="partners-section">
-          {data === undefined ? 'Loading...' : data.ourPartnersImgs.map((partner) => partnerLogo(partner))}
+          {loading ? 'Ładowanie...' : 
+            error !== undefined ? 'Coś poszło nie tak' :
+            data.ourPartnersImgs.map((partner) => partnerLogo(partner))}
         </div>
       </Footer>
       <BottomFooter>

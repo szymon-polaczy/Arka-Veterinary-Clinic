@@ -45,12 +45,14 @@ const AboutUs = () => {
     }
   `
 
-  const { data } = useQuery(query);
+  const { loading, error, data } = useQuery(query);
 
   return (
     <Container>
       <h2>Troszkę więcej o nas i naszym celu</h2>
-      <p>{data === undefined ? 'Loading...' : data.aboutUses[0].long}</p>
+      <p>{loading ? 'Ładowanie...' : 
+            error !== undefined ? 'Coś poszło nie tak!' :
+            data.aboutUses[0].long}</p>
     </Container>
   )
 }

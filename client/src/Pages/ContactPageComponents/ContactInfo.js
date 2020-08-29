@@ -86,24 +86,32 @@ const ContactInfo = () => {
     }
   `
 
-  const { data } = useQuery(query);
+  const { loading, error, data } = useQuery(query);
 
   return (
     <Container>
       <section className="very-imp">
-        <h2>{data === undefined ? 'Loading...' : renderHTML(data.veryImportantInfos[0].info.html)}</h2>
+        <h2>{loading ? 'Ładowanie...' : 
+              error !== undefined ? 'Coś poszło nie tak' :
+              renderHTML(data.veryImportantInfos[0].info.html)}</h2>
       </section>
       <section>
         <h2>Kontakt</h2>
-        {data === undefined ? 'Loading...' : renderHTML(data.contactInfos[0].contact.html)}
+        {loading ? 'Ładowanie...' : 
+          error !== undefined ? 'Coś poszło nie tak' :
+          renderHTML(data.contactInfos[0].contact.html)}
       </section>
       <section>
         <h2>Godziny Otwarcia</h2>
-        {data === undefined ? 'Loading...' : renderHTML(data.contactInfos[0].openHours.html)}
+        {loading ? 'Ładowanie...' : 
+          error !== undefined ? 'Coś poszło nie tak' :
+          renderHTML(data.contactInfos[0].openHours.html)}
       </section>
       <section>
         <h2>Nasz Adres</h2>
-        {data === undefined ? 'Loading...' : renderHTML(data.contactInfos[0].address.html)}
+        {loading ? 'Ładowanie...' : 
+          error !== undefined ? 'Coś poszło nie tak' :
+          renderHTML(data.contactInfos[0].address.html)}
       </section>
     </Container>
   )

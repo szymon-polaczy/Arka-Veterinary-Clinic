@@ -123,13 +123,14 @@ const PeopleSection = () => {
     }
   `
   
-  const { data } = useQuery(query); 
+  const { loading, error, data } = useQuery(query); 
 
   return (
     <People>
       <h2>Oto ludzie dbający o to co dla Ciebie <br/> Najważniejsze</h2>
       <section>
-      {data === undefined ? 'Loading...' : 
+      { loading ? 'Ładowanie...' : 
+        error !== undefined ? 'Coś poszło nie tak!' :
         data.workers.map(worker => getOneWorker(worker))}
       </section>
     </People>

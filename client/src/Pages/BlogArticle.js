@@ -122,7 +122,7 @@ const BlogArticle = ({id}) => {
     }  
   `
   
-  const { data } = useQuery(query); 
+  const { loading, error, data } = useQuery(query); 
 
   useEffect(() => {
     window.scrollTo(0,0)
@@ -130,7 +130,9 @@ const BlogArticle = ({id}) => {
 
   return (
     <Container>
-      { data === undefined ? 'Loading' : Article(data.blogPost)}
+      { loading ? 'Ładowanie...' : 
+        error !== undefined ? 'Coś poszło nie tak!' : 
+        Article(data.blogPost)}
     </Container>
   )
 }

@@ -37,14 +37,15 @@ const ImageSection = () => {
       }
     }
   `
-  const { data } = useQuery(query); 
+  const { loading, error, data } = useQuery(query); 
 
   return (
     <Section>
-      {data === undefined ? 'Loading...' : 
-      <img src={data.homePageImages[0].img.url} 
-      alt={data.homePageImages[0].alt}
-      title={data.homePageImages[0].title}/>}
+      {loading ? 'Ładowanie...' : 
+        error !== undefined ? 'Coś poszło nie tak!' :
+        <img src={data.homePageImages[0].img.url} 
+        alt={data.homePageImages[0].alt}
+        title={data.homePageImages[0].title}/>}
     </Section>
   )
 }
