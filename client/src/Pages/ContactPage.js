@@ -4,7 +4,6 @@ import Styled from 'styled-components'
 import GMap from '../Components/GMap'
 import AboutUs from './ContactPageComponents/AboutUs'
 import ContactInfo from './ContactPageComponents/ContactInfo'
-import ContactForm from './ContactPageComponents/ContactForm'
 
 const ContactContainer = Styled.section`
   max-width: 2000px;
@@ -20,8 +19,9 @@ const ContactContainer = Styled.section`
     grid-template-columns: repeat(2, 1fr);
 
     iframe {
-      grid-column: 2 / span 1;
-      grid-row: 1 / span 1;
+      grid-column: 1 / span 2;
+      grid-row: 2 / span 1;
+      min-height: 500px;
     }
 
     article:nth-child(2) {
@@ -45,7 +45,6 @@ const ContactPage = () => {
   return (
     <ContactContainer>
       <ContactInfo/>
-      <ContactForm/>
       <GMap/>
       <AboutUs/>
     </ContactContainer>
