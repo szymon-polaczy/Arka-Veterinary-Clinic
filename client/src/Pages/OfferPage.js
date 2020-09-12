@@ -8,7 +8,6 @@ const Container = Styled.section`
   padding: 2.5rem 1rem;
   display: flex;
   flex-flow: wrap;
-  align-items: center;
   justify-content: center;
   max-width: 2000px;
   margin: 0 auto;

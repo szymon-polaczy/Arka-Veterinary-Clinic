@@ -3,9 +3,8 @@ import Styled from 'styled-components'
 
 const HidingParagraph = Styled.p`
   display: ${({open}) => open ? 'block' : 'none'};
-  padding: 1rem;
-  margin: .2rem 0;
   line-height: 130%;
+  padding: 0 6px;
 `
 
 const Button = Styled.button`
@@ -13,13 +12,18 @@ const Button = Styled.button`
   outline: none;
   background: transparent;
   color: inherit;
-  border-top: 2px solid ${props => props.theme.akcent};
-  border-bottom: 2px solid ${props => props.theme.akcent};
-  font-size: 1.45rem;
-  width: 100%;
-  text-align: left;
-  padding: .25rem 1.4rem;
-  margin: .25rem 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 5px;
+  padding: 0 6px;
+
+  &::after {
+    content: '(Rozwiń)';
+    color: ${props => props.theme.gray};
+    font-size: .9rem;
+    padding-left: 10px;
+  }
 `
 
 const OfferSection = ({offer}) => {

@@ -7,41 +7,46 @@ const HidingSection = Styled.section`
 `
 
 const AStyledOffer = Styled.article`
-  background: ${props => props.theme.gray};
+  background: ${props => props.theme.light};
   max-width: 800px;
   margin: 2.5rem;
-
-  @media (min-width: 850px) {
-    box-shadow: 0 0 .75rem #000;
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
-    overflow: hidden;
-  }
+  color: ${props => props.theme.dark};
+  border: 5px solid ${props => props.theme.light};
 `
 
 const Img = Styled.img`
   max-width: 100%;
   max-height: 400px;
   object-fit: cover;
+  cursor: pointer;
+  transition: .2s filter ease-in-out;
+
+  &:hover {
+    filter: brightness(110%);
+  }
 `
 
 const Title = Styled.h2`
-  font-size: 2rem;
-  letter-spacing: .1rem;
-  font-family: ${props => props.theme.secondaryFontFamily};
-  padding: .65rem 1.4rem;
+  font-size: 1.65rem;
+  cursor: pointer;
   margin: 0;
+  padding: 1.5rem 6px;
+  transition: .2s all ease-in-out;
+
+  &:hover {
+    font-size: 1.75rem;
+  }
 `
 
 const Offer = ({ offer }) => {
   const {title, fullOffer, image} = offer
-  const [open, setOpen ] = useState(false)
+  const [open, setOpen] = useState(false)
 
   return (
     <AStyledOffer key={title}>
       <Img style={{width: "100%"}} src={image.url} alt={title}
         onClick={() => setOpen(state => !state)}/>
-      <Title onClick={() => setOpen(state => !state)}>{title}</Title>
+      <Title open={open} onClick={() => setOpen(state => !state)}>{title}</Title>
       <HidingSection open={open}>
         { fullOffer.offers.map((offer, index) => 
           <OfferSection offer={offer} key={offer.title}/>) }
