@@ -3,6 +3,7 @@ import gpl from 'graphql-tag'
 import React from 'react'
 import renderHTML from 'react-render-html'
 import Styled from 'styled-components'
+import GraphImg from 'graphcms-image'
 
 import GMap from './GMap'
 import BottomSection from './AppFooterComponents/BottomSection'
@@ -88,8 +89,8 @@ const TopSection = Styled.section`
     justify-content: space-around;
     filter: grayscale(100%);
 
-    img {
-      max-width: 5rem;
+    .graphcms-image-wrapper {
+      width: 5rem;
       margin: .35rem;
     }
   }
@@ -136,7 +137,17 @@ const AppFooter = () => {
         alt
         title
         logo {
-          url
+          handle
+          width
+          height
+        }
+      }
+      footerImages {
+        alt
+        image {
+          handle
+          height
+          width
         }
       }
     }
@@ -147,39 +158,35 @@ const AppFooter = () => {
   return (
     <footer>
       <TransparentOverlay/>
-      <DesktopImage/>
-      <TopSection>
-        <div className="info-section">
-          <article>
-            <h3>Kontakt</h3>
-            {loading ? 'Ładowanie...' : 
-              error !== undefined ? 'Coś poszło nie tak' :
-              renderHTML(data.contactInfos[0].contact.html)}
-          </article>
-          <article>
-            <h3>Godziny Otwarcia</h3>
-            {loading ? 'Ładowanie...' : 
-              error !== undefined ? 'Coś poszło nie tak' :
-              renderHTML(data.contactInfos[0].openHours.html)}
-          </article>
-          <article>
-            <h3>Adres</h3>
-            {loading ? 'Ładowanie...' : 
-              error !== undefined ? 'Coś poszło nie tak' :
-              renderHTML(data.contactInfos[0].address.html)}
-          </article>
-          <article className="map">
-            <GMap title="Nasze-Położenie-Stopka"/>
-          </article>
-        </div>
-        <div className="partners-section">
-          {loading ? 'Ładowanie...' : 
-            error !== undefined ? 'Coś poszło nie tak' :
-            data.ourPartnersImgs.map(({logo:{url}, alt, title, id}) => 
-              <img src={url} alt={alt} title={title} key={id}/>)
-          }
-        </div>
-      </TopSection>
+        {loading ? "Ładowanie..." :
+          error !== undefined ? "Coś poszło nie tak, przepraszamy." :
+          <>
+            <DesktopImage photo={data.footerImages[0]}/>
+            <TopSection>
+              <div className="info-section">
+                <article>
+                  <h3>Kontakt</h3>
+                  {renderHTML(data.contactInfos[0].contact.html)}
+                </article>
+                <article>
+                  <h3>Godziny Otwarcia</h3>
+                  {renderHTML(data.contactInfos[0].openHours.html)}
+                </article>
+                <article>
+                  <h3>Adres</h3>
+                  {renderHTML(data.contactInfos[0].address.html)}
+                </article>
+                <article className="map">
+                  <GMap title="Nasze-Położenie-Stopka"/>
+                </article>
+              </div>
+              <div className="partners-section">
+                {data.ourPartnersImgs.map(({logo, alt, title, id}) => 
+                  <GraphImg image={logo} maxWidth={80} alt={alt} title={title} key={id}/>)}
+              </div>
+            </TopSection>
+          </>
+        }
       <BottomSection/>
     </footer>
   )

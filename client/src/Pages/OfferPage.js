@@ -20,7 +20,9 @@ const OfferPage = () => {
         title
         fullOffer
         image {
-          url
+          handle
+          width
+          height
         }
       }
     }  

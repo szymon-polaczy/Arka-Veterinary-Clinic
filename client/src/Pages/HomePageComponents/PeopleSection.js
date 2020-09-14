@@ -2,6 +2,7 @@ import { useQuery } from '@apollo/react-hooks'
 import gpl from 'graphql-tag'
 import React from "react";
 import Styled from "styled-components";
+import GraphImg from 'graphcms-image'
 
 const People = Styled.section`
   padding: 3rem 1rem;
@@ -26,11 +27,13 @@ const People = Styled.section`
   article {
     margin-top: 5rem;
 
-    img {
+    .graphcms-image-wrapper  {
       width: 280px;
       height: 280px;
+      box-sizing: border-box;
       border-radius: 50%;
       object-fit: cover;
+      margin: 0 auto;
     }
 
     h3, h4 {
@@ -58,8 +61,8 @@ const People = Styled.section`
       text-align: left;
       margin-top: 2rem;
 
-      img {
-        padding: 2rem;
+      .graphcms-image-wrapper  {
+        margin: 1rem 2rem;
         width: 320px;
         height: 320px;
       }
@@ -77,10 +80,9 @@ const People = Styled.section`
     @media (min-width: 1200px) {
       margin-top: 0;
 
-      img {
+      .graphcms-image-wrapper {
         width: 350px;
         height: 350px;
-        padding: 1rem 2rem;
       }
 
       h3, h4 {
@@ -98,7 +100,7 @@ const People = Styled.section`
 const getOneWorker = ({id, photo, fullName, education, description}) => {
   return (
     <article key={id}>
-      <img src={photo.url} alt={fullName} title={fullName}/>
+      <GraphImg image={photo} alt={fullName} title={fullName} maxWidth={350}/>
       <section>
         <h3>{fullName}</h3>
         <h4>{education}</h4>
@@ -110,15 +112,17 @@ const getOneWorker = ({id, photo, fullName, education, description}) => {
 
 const PeopleSection = () => {
   const query = gpl`
-    query MyQuery {
+    query Workers {
       workers {
         id
-        photo {
-          url
-        }
-        fullName
         education
+        fullName
         description
+        photo {
+          width
+          height
+          handle
+        }
       }
     }
   `

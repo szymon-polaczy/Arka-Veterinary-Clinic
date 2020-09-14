@@ -3,6 +3,7 @@ import gpl from 'graphql-tag'
 import React, { useEffect } from 'react'
 import Styled from 'styled-components'
 import renderHTML from 'react-render-html'
+import GraphImg from 'graphcms-image'
 
 const Container = Styled.article`
   max-width: 1600px;
@@ -10,7 +11,7 @@ const Container = Styled.article`
   padding: 5rem 0;
 `
 
-const Img = Styled.img`
+const Img = Styled(GraphImg)`
   width: 100%;
   height: 400px;
   object-fit: cover;
@@ -86,7 +87,7 @@ const InfoContainer = Styled.article`
 const Article = ({title, lastUpdateDate, creationDate, creator, category, article, photo}) => {
   return (
     <>
-      <Img src={photo.url} alt={title}/>
+      <Img image={photo} maxWidth={1600} alt={title}/>
       <Title>{title} <span> - {creator}</span></Title>
       <Post>{renderHTML(article.html)}</Post>
       
@@ -116,7 +117,9 @@ const BlogArticle = ({id}) => {
           html
         }
         photo {
-          url
+          handle
+          width
+          height
         }
       }
     }  

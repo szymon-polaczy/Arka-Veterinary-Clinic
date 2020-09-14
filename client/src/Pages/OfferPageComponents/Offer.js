@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import OfferSection from './OfferSection'
 import Styled from 'styled-components'
+import GraphImg from 'graphcms-image'
 
 const HidingSection = Styled.section`
   display: ${({open}) => open ? 'block' : 'none'};
@@ -9,16 +10,16 @@ const HidingSection = Styled.section`
 const AStyledOffer = Styled.article`
   background: ${props => props.theme.light};
   max-width: 800px;
+  width: 100%;
   margin: 2.5rem;
   color: ${props => props.theme.dark};
   border: 5px solid ${props => props.theme.light};
 `
 
-const Img = Styled.img`
+const Img = Styled(GraphImg)`
   max-width: 100%;
   max-height: 400px;
   object-fit: cover;
-  cursor: pointer;
   transition: .2s filter ease-in-out;
 
   &:hover {
@@ -44,8 +45,7 @@ const Offer = ({ offer }) => {
 
   return (
     <AStyledOffer key={title}>
-      <Img style={{width: "100%"}} src={image.url} alt={title}
-        onClick={() => setOpen(state => !state)}/>
+      <Img image={image} alt={title} maxWidth={800}/>
       <Title open={open} onClick={() => setOpen(state => !state)}>{title}</Title>
       <HidingSection open={open}>
         { fullOffer.offers.map((offer, index) => 
