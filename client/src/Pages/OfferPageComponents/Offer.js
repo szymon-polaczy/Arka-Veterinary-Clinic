@@ -45,7 +45,7 @@ const Offer = ({ offer }) => {
   return (
     <AStyledOffer key={title}>
       <Img style={{width: "100%"}} src={image.url} alt={title}
-        onClick={() => setOpen(state => !state)}/>
+        onClick={() => setOpen(state => !state)} loading="lazy"/>
       <Title open={open} onClick={() => setOpen(state => !state)}>{title}</Title>
       <HidingSection open={open}>
         { fullOffer.offers.map((offer, index) => 

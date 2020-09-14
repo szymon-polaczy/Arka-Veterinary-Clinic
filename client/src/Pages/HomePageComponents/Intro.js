@@ -79,21 +79,21 @@ const Intro = () => {
       <div className="big-wrapper">
         <Link to="/blog">
           <article>
-            <img src="Images/svg/comment-medical-solid.svg" alt="Rozmowa"/>
+            <img src="Images/svg/comment-medical-solid.svg" alt="Rozmowa" loading="lazy"/>
             <h2>Blog</h2>
             <p>Zrozum lepiej swoją rodzinę</p>
           </article>
         </Link>
         <Link to="/oferta">
           <article>
-            <img src="Images/svg/child-solid.svg" alt="Człowiek"/>
+            <img src="Images/svg/child-solid.svg" alt="Człowiek" loading="lazy"/>
             <h2>Nasza Oferta</h2>
             <p>Co możemy dla niego zrobić?</p>
           </article>
         </Link>
         <Link to="/galeria">
           <article>
-            <img src="Images/svg/cat-solid.svg" alt="Kotek"/>
+            <img src="Images/svg/cat-solid.svg" alt="Kotek" loading="lazy"/>
             <h2>Galeria</h2>
             <p>Poznaj naszych przyjaciół</p>
           </article>

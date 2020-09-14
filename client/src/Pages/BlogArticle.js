@@ -35,6 +35,12 @@ const Title = Styled.h2`
 const Post = Styled.article`
   padding: 1rem;
 
+  img {
+    max-width: 100%;
+    object-fit: contain;
+    height: auto;
+  }
+
   p {
     font-size: 1.1rem;
     line-height: 145%;

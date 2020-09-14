@@ -98,7 +98,7 @@ const People = Styled.section`
 const getOneWorker = ({id, photo, fullName, education, description}) => {
   return (
     <article key={id}>
-      <img src={photo.url} alt={fullName} title={fullName}/>
+      <img src={photo.url} alt={fullName} title={fullName} loading="lazy"/>
       <section>
         <h3>{fullName}</h3>
         <h4>{education}</h4>

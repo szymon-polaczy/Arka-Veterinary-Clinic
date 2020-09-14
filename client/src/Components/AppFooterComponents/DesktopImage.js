@@ -18,7 +18,7 @@ const Img = Styled.img`
 `
 
 const DesktopImage = () => {
-  return <Img src="Images/footer.jpg" alt="Kotek do góry nogami"/>
+  return <Img src="Images/footer.jpg" alt="Kotek do góry nogami" loading="lazy"/>
 }
 
 export default DesktopImage

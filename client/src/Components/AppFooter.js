@@ -176,7 +176,7 @@ const AppFooter = () => {
           {loading ? 'Ładowanie...' : 
             error !== undefined ? 'Coś poszło nie tak' :
             data.ourPartnersImgs.map(({logo:{url}, alt, title, id}) => 
-              <img src={url} alt={alt} title={title} key={id}/>)
+              <img src={url} alt={alt} title={title} key={id} loading="lazy"/>)
           }
         </div>
       </TopSection>

@@ -43,7 +43,7 @@ const ImageSection = () => {
     <Section>
       {loading ? 'Ładowanie...' : 
         error !== undefined ? 'Coś poszło nie tak!' :
-        <img src={data.homePageImages[0].img.url} 
+        <img src={data.homePageImages[0].img.url} loading="lazy" 
         alt={data.homePageImages[0].alt}
         title={data.homePageImages[0].title}/>}
     </Section>
