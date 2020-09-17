@@ -5,6 +5,7 @@
     "@apollo/react-hooks": "^4.0.0",
     "@lemoncode/fonk": "^1.4.0",
     "@lemoncode/fonk-final-form": "^2.3.4",
+    "@loadable/component": "^5.13.2",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",

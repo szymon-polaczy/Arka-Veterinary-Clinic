@@ -1,17 +1,19 @@
 import React from 'react'
 import Styled from 'styled-components'
+import loadable from '@loadable/component'
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 import AppHeader from './Components/AppHeader'
 import AppFooter from './Components/AppFooter'
-import HomePage from './Pages/HomePage'
-import OfferPage from './Pages/OfferPage'
-import ContactPage from './Pages/ContactPage'
-import Gallery from './Pages/Gallery'
-import Blog from './Pages/Blog'
-import BlogArticle from './Pages/BlogArticle'
 
 import 'normalize.css';
+
+const LoadableHome = loadable(() => import('./Pages/HomePage'))
+const LoadableOffer = loadable(() => import('./Pages/OfferPage'))
+const LoadableContact = loadable(() => import('./Pages/ContactPage'))
+const LoadableGallery = loadable(() => import('./Pages/Gallery'))
+const LoadableBlog = loadable(() => import('./Pages/Blog'))
+const LoadableBlogArticle = loadable(() => import('./Pages/BlogArticle'))
 
 const Main = Styled.main`
 	padding: 0;
@@ -29,12 +31,12 @@ function App() {
 
 			<Main>
 				<Switch>
-					<Route path='/blog-:id' render={routerProps => <BlogArticle id={routerProps.match.params.id}/>}/>
-					<Route path="/blog" component={Blog}/>
-					<Route path="/galeria" component={Gallery}/>
-					<Route path="/kontakt" component={ContactPage}/>
-					<Route path="/oferta" component={OfferPage}/>
-					<Route path="/" component={HomePage}/>
+					<Route path='/blog-:id' render={routerProps => <LoadableBlogArticle id={routerProps.match.params.id}/>}/>
+					<Route path="/blog" component={LoadableBlog}/>
+					<Route path="/galeria" component={LoadableGallery}/>
+					<Route path="/kontakt" component={LoadableContact}/>
+					<Route path="/oferta" component={LoadableOffer}/>
+					<Route path="/" component={LoadableHome}/>
 				</Switch>
 			</Main>
 						
