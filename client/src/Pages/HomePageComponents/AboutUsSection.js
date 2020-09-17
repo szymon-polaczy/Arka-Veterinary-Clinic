@@ -17,9 +17,12 @@ const AboutUs = Styled.section`
     font-family: ${props => props.theme.secondaryFontFamily};
     text-align: center;
     margin: 0 auto .5rem auto;
+    transition: .25s transform ease-in-out;
 
     &:hover {
       text-decoration: underline;
+      transform: scale(1.05);
+      transition: .3s transform ease-in-out;
     }
   }
 

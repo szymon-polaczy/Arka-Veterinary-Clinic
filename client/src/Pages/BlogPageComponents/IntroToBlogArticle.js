@@ -7,6 +7,12 @@ const ArticleIntro = Styled.article`
 
   @media (min-width: 1050px) {
     border-radius: .65rem;
+    transition: .2s transform ease-out;
+
+    &:hover {
+      transform: scale(1.05);
+      transition: .15s transform ease-in-out;
+    }
   }
 `
 

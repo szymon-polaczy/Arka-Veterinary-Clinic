@@ -2,9 +2,13 @@ import React, { useState } from 'react'
 import Styled from 'styled-components'
 
 const HidingParagraph = Styled.p`
-  display: ${({open}) => open ? 'block' : 'none'};
   line-height: 130%;
   padding: 0 6px;
+  opacity: ${({open}) => open ? '1' : '0'};
+  transform: scaleY(${({open}) => open ? '1' : '0'});
+  height: ${({open}) => open ? 'auto' : '0'};
+  transition: .3s all ease-in-out;
+  transform-origin: top;
 `
 
 const Button = Styled.button`

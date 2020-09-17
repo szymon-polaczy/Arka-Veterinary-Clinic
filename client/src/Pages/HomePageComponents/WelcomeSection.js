@@ -34,11 +34,11 @@ const Header = Styled.header`
   }
 
   h2:first-child {
-    animation: slide-in-left-top 2s forwards;
+    animation: 2s slide-in-left-top .5s forwards;
   }
 
   h2:last-child {
-    animation: slide-in-right-top 2s forwards;
+    animation: 2s slide-in-right-top .5s forwards;
   }
 
   @keyframes slide-in-left-top {

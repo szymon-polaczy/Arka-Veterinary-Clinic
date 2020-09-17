@@ -11,6 +11,7 @@ const Section = Styled.section`
 
     img {
       max-width: 5rem;
+      transition: .2s transform ease-out;
     }
   
     a {
@@ -30,6 +31,11 @@ const Section = Styled.section`
       &:hover {
         p::after {
           transform: scale(1);
+        }
+
+        img {
+          transform: scale(1.1);
+          transition: .35s transform ease-out;
         }
       }
     }

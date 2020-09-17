@@ -1,6 +1,5 @@
 import React from 'react'
 import Styled from 'styled-components'
-import { Link } from 'react-router-dom'
 
 const Article = Styled.article`
   text-align: center;
@@ -27,7 +26,6 @@ const Article = Styled.article`
 const Links = Styled.section`
   display: flex;
   flex-flow: column;
-  font-size: 1.1rem;
 
   a {
     padding: .25rem;
@@ -47,7 +45,6 @@ const BottomSection = () => {
     <Article>
       <p>Copyright &copy; Przychodnia Weterynaryjna Arka</p>
       <Links>
-        <Link to="/polityka-prywatnosci">Polityka Prywatności</Link>
         <a href="https://github.com/szymon-polaczy" target="_blank"
           title="Skontaktuj się ze mną" rel="noopener noreferrer">
             Made by Szymon Polaczy

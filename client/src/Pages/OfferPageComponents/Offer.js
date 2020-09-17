@@ -3,7 +3,11 @@ import OfferSection from './OfferSection'
 import Styled from 'styled-components'
 
 const HidingSection = Styled.section`
-  display: ${({open}) => open ? 'block' : 'none'};
+  opacity: ${({open}) => open ? '1' : '0'};
+  transform: scaleY(${({open}) => open ? '1' : '0'});
+  height: ${({open}) => open ? 'auto' : '0'};
+  transition: .3s all ease-in-out;
+  transform-origin: top;
 `
 
 const AStyledOffer = Styled.article`
