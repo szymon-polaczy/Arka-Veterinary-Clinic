@@ -113,7 +113,7 @@ const TopSection = Styled.section`
 
 const TransparentOverlay = Styled.div`
   @media (min-width: 1800px) {
-    height: calc(28rem + 400px);
+    height: calc(28rem + 450px);
   }
 `
 

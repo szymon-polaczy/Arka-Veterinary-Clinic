@@ -76,7 +76,7 @@ const Section = Styled.section`
 const Intro = () => {
   return (
     <Section>
-      <div className="big-wrapper">
+      <div className="big-wrapper" title="Poczytaj naszego bloga">
         <Link to="/blog">
           <article>
             <img src="Images/svg/comment-medical-solid.svg" alt="Rozmowa" loading="lazy"/>
@@ -84,14 +84,14 @@ const Intro = () => {
             <p>Zrozum lepiej swoją rodzinę</p>
           </article>
         </Link>
-        <Link to="/oferta">
+        <Link to="/oferta" title="Zobacz naszą ofertę">
           <article>
             <img src="Images/svg/child-solid.svg" alt="Człowiek" loading="lazy"/>
             <h2>Nasza Oferta</h2>
             <p>Co możemy dla niego zrobić?</p>
           </article>
         </Link>
-        <Link to="/galeria">
+        <Link to="/galeria" title="Oto nasze zwierzęta">
           <article>
             <img src="Images/svg/cat-solid.svg" alt="Kotek" loading="lazy"/>
             <h2>Galeria</h2>

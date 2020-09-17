@@ -14,11 +14,20 @@ const Article = Styled.article`
     align-items: center;
     justify-content: space-around;
   }
+
+  @media (min-width: 1800px) {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+  }
 `
 
 const Links = Styled.section`
   display: flex;
   flex-flow: column;
+  font-size: 1.1rem;
 
   a {
     padding: .25rem;
@@ -42,7 +51,7 @@ const BottomSection = () => {
         <a href="https://github.com/szymon-polaczy" target="_blank"
           title="Skontaktuj się ze mną" rel="noopener noreferrer">
             Made by Szymon Polaczy
-          </a>
+        </a>
       </Links>
     </Article>
   )

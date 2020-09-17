@@ -40,7 +40,7 @@ const Header = Styled.header`
 		}
 	}
 
-	@media (max-width: 800px) {
+	@media (max-width: 875px) {
 		button {
 			display: block;
 		}
@@ -121,7 +121,7 @@ const Navigation = Styled.nav`
 		}
 	}
 
-	@media (max-width: 800px) {
+	@media (max-width: 875px) {
 		transform: ${({ open }) => open ? 'translateY(0%)' : 'translateY(-100%)'};
 		opacity: ${({ open }) => open ? '1' : '0'};
 		position: fixed;
@@ -136,6 +136,11 @@ const Navigation = Styled.nav`
 
 		ul {
 			flex-flow: column;
+
+			li {
+				padding: .8rem 1.5rem;
+				font-size: 1.25rem;
+			}
 		}
 	}
 `
@@ -156,11 +161,11 @@ const AppHeader = () => {
 					</button>
 					<Navigation open={open}>
 						<ul>
-							<li><Link to="/" onClick={handleToggleMenu}>Strona Główna</Link></li>
-							<li><Link to="/oferta" onClick={handleToggleMenu}>Oferta</Link></li>
-							<li><Link to="/galeria" onClick={handleToggleMenu}>Galeria</Link></li>
-							<li><Link to="/blog" onClick={handleToggleMenu}>Blog</Link></li>
-							<li><Link to="/kontakt" onClick={handleToggleMenu}>Kontakt</Link></li>
+							<Link to="/" onClick={handleToggleMenu}><li>Strona Główna</li></Link>
+							<Link to="/oferta" onClick={handleToggleMenu}><li>Oferta</li></Link>
+							<Link to="/galeria" onClick={handleToggleMenu}><li>Galeria</li></Link>
+							<Link to="/blog" onClick={handleToggleMenu}><li>Blog</li></Link>
+							<Link to="/kontakt" onClick={handleToggleMenu}><li>Kontakt</li></Link>
 						</ul>
 					</Navigation>
 				</div>
