@@ -1,7 +1,6 @@
 # Arka-Veterinary-Clinic
 This is an application made for 'Przychodnia Weterynaryjna Arka'.
-This will allow them to have a website where their clients can made a 
-reservation for any open window in their calendar.
+The site was never deployed but I'm really impressed with this project and how it tourned out.
 
 ---
 
