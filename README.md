@@ -1,6 +1,6 @@
 # Arka-Veterinary-Clinic
 This is an application made for 'Przychodnia Weterynaryjna Arka'.
-The site was never deployed but I'm really impressed with this project and how it tourned out.
+The site was never deployed but I'm really impressed with this project and how it turned out.
 
 ---
 
