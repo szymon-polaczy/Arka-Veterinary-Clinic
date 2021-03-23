@@ -4,9 +4,6 @@ The site was never deployed but I'm really impressed with this project and how i
 
 ---
 
-## Server Side [Backend]
-I'm building the backend of this application using Node.js and Express
-
 ## Client Sife [Frontend]
 I'm building the frontend of this application using React
 
